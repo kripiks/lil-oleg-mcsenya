@@ -1,0 +1,13 @@
+body{
+  color: white;
+  background: url(gl.jpg);
+}
+}
+.name {
+font-style: italic;
+font-weight: bold;
+color: #F38181;
+}
+img{
+  margin: 10px;
+}
