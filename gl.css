@@ -6,7 +6,7 @@ a:link, a:visited, a:active { color: #00f; }
 .pryam {
             width: 200px; /* Ширина прямоугольника */
             height: 100px; /* Высота прямоугольника */
-            background-color: #3498db; /* Цвет фона */
+            background-color: #DDA0DD; /* Цвет фона */
             border-radius: 15px; /* Скругление углов */
             display: flex; /* Для центрирования текста */
             align-items: center; /* Вертикальное центрирование */
