@@ -1,19 +1,4 @@
-body{
-  color: white;
-  background:url(gl.jpg);
-}
-a:link, a:visited, a:active { color: #00f; }
-.pryam {
-            width: 800px; /* Ширина прямоугольника */
-            height: 100px; /* Высота прямоугольника */
-            background-color:#6A5ACD; /* Цвет фона */
-            border-radius: 15px; /* Скругление углов */
-            display: flex; /* Для центрирования текста */
-            align-items: center; /* Вертикальное центрирование */
-            justify-content: center; /* Горизонтальное центрирование */
-            color: white; /* Цвет текста */
-            font-size: 36px; /* Размер текста */
-  
+
 body{
   color: white;
   background:black;
@@ -41,6 +26,7 @@ a:link, a:visited, a:active { color: #00f; }
             justify-content: center; /* Горизонтальное центрирование */
             color: white; /* Цвет текста */
             font-size: 36px; /* Размер текста */
+            margin:100px 50px 100px 20px ;
         }
 .pryam3 {
             width: 300px; /* Ширина прямоугольника */
@@ -52,33 +38,7 @@ a:link, a:visited, a:active { color: #00f; }
             justify-content: center; /* Горизонтальное центрирование */
             color: white; /* Цвет текста */
             font-size: 30px; /* Размер текста */
-        }
-h1{ font-family:Helvetica;
-  }
-h2{font-family:Helvetica;
-  }
-        }
-.pryam2 {
-            width: 800px; /* Ширина прямоугольника */
-            height: 130px; /* Высота прямоугольника */
-            background-color:#b481c7; /* Цвет фона */
-            border-radius: 15px; /* Скругление углов */
-            display: flex; /* Для центрирования текста */
-            align-items: center; /* Вертикальное центрирование */
-            justify-content: center; /* Горизонтальное центрирование */
-            color: white; /* Цвет текста */
-            font-size: 36px; /* Размер текста */
-        }
-.pryam3 {
-            width: 300px; /* Ширина прямоугольника */
-            height: 50px; /* Высота прямоугольника */
-            background-color:#E6E6FA; /* Цвет фона */
-            border-radius: 15px; /* Скругление углов */
-            display: flex; /* Для центрирования текста */
-            align-items: center; /* Вертикальное центрирование */
-            justify-content: center; /* Горизонтальное центрирование */
-            color: white; /* Цвет текста */
-            font-size: 30px; /* Размер текста */
+            margin:10px 700px 10px 400px ;
         }
 h1{ font-family:Helvetica;
   }
