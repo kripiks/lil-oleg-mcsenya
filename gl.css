@@ -14,4 +14,6 @@ a:link, a:visited, a:active { color: #00f; }
             color: white; /* Цвет текста */
             font-size: 20px; /* Размер текста */
         }
+h1{ font-family:Helvetica;
+  }
 
