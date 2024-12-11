@@ -14,7 +14,7 @@ a:link, a:visited, a:active { color: #00f; }
             justify-content: center; /* Горизонтальное центрирование */
             color: white; /* Цвет текста */
             font-size: 36px; /* Размер текста */
-            margin:100px 5000px 100px 2000px ;
+            margin:100px 500px 100px 200px ;
         }
 .pryam2 {
             width: 800px; /* Ширина прямоугольника */
@@ -26,7 +26,7 @@ a:link, a:visited, a:active { color: #00f; }
             justify-content: center; /* Горизонтальное центрирование */
             color: white; /* Цвет текста */
             font-size: 36px; /* Размер текста */
-            margin:1000px 500px 1000px 200px ;
+            margin:100px 50px 100px 200px ;
         }
 .pryam3 {
             width: 300px; /* Ширина прямоугольника */
@@ -38,7 +38,7 @@ a:link, a:visited, a:active { color: #00f; }
             justify-content: center; /* Горизонтальное центрирование */
             color: white; /* Цвет текста */
             font-size: 30px; /* Размер текста */
-            margin:100px 7000px 100px 4000px ;
+            margin:10px 700px 10px 400px ;
         }
 h1{ font-family:Helvetica;
   }
