@@ -38,7 +38,7 @@ a:link, a:visited, a:active { color: #00f; }
             justify-content: center; /* Горизонтальное центрирование */
             color: white; /* Цвет текста */
             font-size: 30px; /* Размер текста */
-            margin:10px 150px 10px 900px ;
+            margin:10px 150px 10px 800px ;
         }
 h1{ font-family:Helvetica;
   }
