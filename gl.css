@@ -1,3 +1,9 @@
+@font-face{
+  font-fimily"xy";
+  src: url('HelveticaThin.woff ')format('woff');
+  font-weight:normal;
+  font-style:normal;
+}
 body{
   color: white;
   background: url(gl.jpg);
@@ -14,8 +20,8 @@ a:link, a:visited, a:active { color: #00f; }
             color: white; /* Цвет текста */
             font-size: 20px; /* Размер текста */
         }
-h1{ font-family:Arial Black;
+h1{ font-family:'xy';
   }
-h2{font-family:Arial Black;
+h2{font-family:'xy';
   }
 
