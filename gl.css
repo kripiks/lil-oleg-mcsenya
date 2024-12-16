@@ -80,3 +80,7 @@ h4{font-family:Helvetica;
 table{
   border-spacing: 0
 }
+table.split  tr{
+    width:10%;
+    height:50px;
+}
