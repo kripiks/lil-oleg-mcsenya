@@ -40,6 +40,18 @@ a:link, a:visited, a:active { color: #00f; }
             font-size: 30px; /* Размер текста */
             margin:10px 500px 10px 710px ;
         }
+.pryam4 {
+            width: 800px; /* Ширина прямоугольника */
+            height: 100px; /* Высота прямоугольника */
+            background-color:#E6E6FA; /* Цвет фона */
+            border-radius: 15px; /* Скругление углов */
+            display: flex; /* Для центрирования текста */
+            align-items: center; /* Вертикальное центрирование */
+            justify-content: center; /* Горизонтальное центрирование */
+            color: white; /* Цвет текста */
+            font-size: 36px; /* Размер текста */
+            margin:50px 200px 50px 500px ;
+        }
 h1{ font-family:Helvetica;
   }
 h2{font-family:Helvetica;
