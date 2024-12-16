@@ -84,3 +84,7 @@ table.split  tr{
     width:10%;
     height:50px;
 }
+table.split{
+    font-family:franklin gothic medium;
+    font-size: 20px;
+}
