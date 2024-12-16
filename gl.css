@@ -19,7 +19,7 @@ a:link, a:visited, a:active { color: #00f; }
 .pryam2 {
             width: 800px; /* Ширина прямоугольника */
             height: 130px; /* Высота прямоугольника */
-            background-color:#b481c7; /* Цвет фона */
+            background-color:#6A5ACD; /* Цвет фона */
             border-radius: 15px; /* Скругление углов */
             display: flex; /* Для центрирования текста */
             align-items: center; /* Вертикальное центрирование */
