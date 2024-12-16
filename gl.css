@@ -54,18 +54,26 @@ a:link, a:visited, a:active { color: #00f; }
             margin:50px 200px 50px 500px ;
         }
 h1{ font-family:Helvetica;
+   style="line-height: 1.5;"
   }
 h2{font-family:Helvetica;
+   style="line-height: 1.5;"
   }
 ul{font-family:Helvetica;
+   style="line-height: 1.5;"
   }
 li{font-family:Helvetica;
+   style="line-height: 1.5;"
   }
 ol{font-family:Helvetica;
+   style="line-height: 1.5;"
   }
 p{font-family:Helvetica;
+  style="line-height: 1.5;"
   }
 h3{font-family:Helvetica;
+   style="line-height: 1.5;"
   }
 h4{font-family:Helvetica;
+   style="line-height: 1.5;"
   }
