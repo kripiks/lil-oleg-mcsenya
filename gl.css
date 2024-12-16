@@ -27,6 +27,7 @@ a:link, a:visited, a:active { color: #00f; }
             color: white; /* Цвет текста */
             font-size: 36px; /* Размер текста */
             margin:100px 1000px 100px 50px ;
+            padding: 20px 20px 20px 20px
         }
 .pryam3 {
             width: 300px; /* Ширина прямоугольника */
