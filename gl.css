@@ -14,7 +14,7 @@ a:link, a:visited, a:active { color: #00f; }
             justify-content: center; /* Горизонтальное центрирование */
             color: white; /* Цвет текста */
             font-size: 36px; /* Размер текста */
-            
+            margin:50px 200px 50px 500px ;
         }
 .pryam2 {
             width: 800px; /* Ширина прямоугольника */
@@ -26,7 +26,7 @@ a:link, a:visited, a:active { color: #00f; }
             justify-content: center; /* Горизонтальное центрирование */
             color: white; /* Цвет текста */
             font-size: 36px; /* Размер текста */
-            
+            margin:100px 1000px 100px 50px ;
             padding: 20px 20px 20px 20px
         }
 .pryam3 {
@@ -39,7 +39,7 @@ a:link, a:visited, a:active { color: #00f; }
             justify-content: center; /* Горизонтальное центрирование */
             color: white; /* Цвет текста */
             font-size: 30px; /* Размер текста */
-            
+            margin:10px 500px 10px 710px ;
         }
 .pryam4 {
             width: 800px; /* Ширина прямоугольника */
@@ -51,7 +51,7 @@ a:link, a:visited, a:active { color: #00f; }
             justify-content: center; /* Горизонтальное центрирование */
             color: white; /* Цвет текста */
             font-size: 36px; /* Размер текста */
-            
+            margin:50px 200px 50px 500px ;
         }
 h1{ font-family:Helvetica;
    style="line-height: 1.5;"
