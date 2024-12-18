@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html class="page" lang="ru">
+    <head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        
+<script>
+/* Modernizr 2.8.3 (Custom Build) | MIT & BSD
+ * Build: http://modernizr.com/download/#-backgroundsize-borderimage-multiplebgs-cssanimations-csscolumns-csstransforms-csstransforms3d-cssclasses-addtest-prefixed-teststyles-testprop-testallprops-hasevent-prefixes-domprefixes
+ */
+;window.Modernizr=function(a,b,c){function A(a){j.cssText=a}function B(a,b){return A(m.join(a+";")+(b||""))}function C(a,b){return typeof a===b}function D(a,b){return!!~(""+a).indexOf(b)}function E(a,b){for(var d in a){var e=a[d];if(!D(e,"-")&&j[e]!==c)return b=="pfx"?e:!0}return!1}function F(a,b,d){for(var e in a){var f=b[a[e]];if(f!==c)return d===!1?a[e]:C(f,"function")?f.bind(d||b):f}return!1}function G(a,b,c){var d=a.charAt(0).toUpperCase()+a.slice(1),e=(a+" "+o.join(d+" ")+d).split(" ");return C(b,"string")||C(b,"undefined")?E(e,b):(e=(a+" "+p.join(d+" ")+d).split(" "),F(e,b,c))}var d="2.8.3",e={},f=!0,g=b.documentElement,h="modernizr",i=b.createElement(h),j=i.style,k,l={}.toString,m=" -webkit- -moz- -o- -ms- ".split(" "),n="Webkit Moz O ms",o=n.split(" "),p=n.toLowerCase().split(" "),q={},r={},s={},t=[],u=t.slice,v,w=function(a,c,d,e){var f,i,j,k,l=b.createElement("div"),m=b.body,n=m||b.createElement("body");if(parseInt(d,10))while(d--)j=b.createElement("div"),j.id=e?e[d]:h+(d+1),l.appendChild(j);return f=["&#173;",'<style id="s',h,'">',a,"</style>"].join(""),l.id=h,(m?l:n).innerHTML+=f,n.appendChild(l),m||(n.style.background="",n.style.overflow="hidden",k=g.style.overflow,g.style.overflow="hidden",g.appendChild(n)),i=c(l,a),m?l.parentNode.removeChild(l):(n.parentNode.removeChild(n),g.style.overflow=k),!!i},x=function(){function d(d,e){e=e||b.createElement(a[d]||"div"),d="on"+d;var f=d in e;return f||(e.setAttribute||(e=b.createElement("div")),e.setAttribute&&e.removeAttribute&&(e.setAttribute(d,""),f=C(e[d],"function"),C(e[d],"undefined")||(e[d]=c),e.removeAttribute(d))),e=null,f}var a={select:"input",change:"input",submit:"form",reset:"form",error:"img",load:"img",abort:"img"};return d}(),y={}.hasOwnProperty,z;!C(y,"undefined")&&!C(y.call,"undefined")?z=function(a,b){return y.call(a,b)}:z=function(a,b){return b in a&&C(a.constructor.prototype[b],"undefined")},Function.prototype.bind||(Function.prototype.bind=function(b){var c=this;if(typeof c!="function")throw new TypeError;var d=u.call(arguments,1),e=function(){if(this instanceof e){var a=function(){};a.prototype=c.prototype;var f=new a,g=c.apply(f,d.concat(u.call(arguments)));return Object(g)===g?g:f}return c.apply(b,d.concat(u.call(arguments)))};return e}),q.multiplebgs=function(){return A("background:url(https://),url(https://),red url(https://)"),/(url\s*\(.*?){3}/.test(j.background)},q.backgroundsize=function(){return G("backgroundSize")},q.borderimage=function(){return G("borderImage")},q.cssanimations=function(){return G("animationName")},q.csscolumns=function(){return G("columnCount")},q.csstransforms=function(){return!!G("transform")},q.csstransforms3d=function(){var a=!!G("perspective");return a&&"webkitPerspective"in g.style&&w("@media (transform-3d),(-webkit-transform-3d){#modernizr{left:9px;position:absolute;height:3px;}}",function(b,c){a=b.offsetLeft===9&&b.offsetHeight===3}),a};for(var H in q)z(q,H)&&(v=H.toLowerCase(),e[v]=q[H](),t.push((e[v]?"":"no-")+v));return e.addTest=function(a,b){if(typeof a=="object")for(var d in a)z(a,d)&&e.addTest(d,a[d]);else{a=a.toLowerCase();if(e[a]!==c)return e;b=typeof b=="function"?b():b,typeof f!="undefined"&&f&&(g.className+=" "+(b?"":"no-")+a),e[a]=b}return e},A(""),i=k=null,e._version=d,e._prefixes=m,e._domPrefixes=p,e._cssomPrefixes=o,e.hasEvent=x,e.testProp=function(a){return E([a])},e.testAllProps=G,e.testStyles=w,e.prefixed=function(a,b,c){return b?G(a,b,c):G(a,"pfx")},g.className=g.className.replace(/(^|\s)no-js(\s|$)/,"$1$2")+(f?" js "+t.join(" "):""),e}(this,this.document);  window.loadJsonFonts = function (md5, path) {
+    // PRE-RENDER
+    var key = 'fonts' + path;
+    var cache;
+
+    function insertFont(value) {
+      var style = document.createElement('style');
+      style.innerHTML = value;
+      document.head.appendChild(style);
+    }
+
+    try {
+      cache = window.localStorage.getItem(key);
+      if (cache) {
+        cache = JSON.parse(cache);
+        if (cache.md5 == md5) {
+          insertFont(cache.value);
+        } else {
+          // Busting cache when md5 doesn't match
+          window.localStorage.removeItem(key);
+          cache = null;
+        }
+      }
+    } catch(e) {
+      // Most likely LocalStorage disabled
+      return;
+    }
+
+    // POST-RENDER
+    if (!cache) {
+      // Fonts not in LocalStorage or md5 did not match
+      window.addEventListener('load', function() {
+        var request = new XMLHttpRequest();
+        var response;
+
+        request.open('GET', path, true);
+        request.onload = function() {
+          if (this.status == 200) {
+            try {
+              response = JSON.parse(this.response);
+              insertFont(response.value);
+              window.localStorage.setItem(key, this.response);
+            } catch(e) {
+              // LocalStorage is probably full
+            }
+          }
+        };
+        request.send();
+      });
+    }
+  };
+  window.loadJsonFonts('328392c0cdde57c57920299727c716a4', '/css/fonts.woff.json');
+</script>
+
+        <meta name="author" content="SmartProgress.do">
+        <!--<meta name="apple-itunes-app" content="app-id=765336334">
+        <meta name="google-play-app" content="app-id=com.smartprogress.progress">-->
+
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://smartprogress.do/site/rss/" />
+		<link rel="image_src" href="https://smartprogress.do/uploadImages/001127940.jpg" />
+
+        <meta property="og:image" content="https://smartprogress.do/uploadImages/001127940.jpg" />
+        <meta property="og:type" content="website" />
+
+        
+        <!-- Iphone icons: -->
+        <link rel="apple-touch-icon" href="/images/apple-touch-icon-iphone.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-ipad.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-iphone4.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/images/apple-touch-icon-ipad3.png" />
+        <!-- /Iphone icons: -->
+
+		<!-- Languages: -->
+		<link rel="alternate" hreflang="x-default" href="https://smartprogress.do/goal/307109/" />
+		<link rel="alternate" hreflang="ru" href="https://smartprogress.do/goal/307109/?lang=ru" />
+		<link rel="alternate" hreflang="uk" href="https://smartprogress.do/goal/307109/?lang=uk" />
+		<link rel="alternate" hreflang="en" href="https://smartprogress.do/goal/307109/?lang=en" />
+		<link rel="alternate" hreflang="es" href="https://smartprogress.do/goal/307109/?lang=es" />
+
+                <meta property="og:locale" content="ru_RU"  />
+        <meta property="og:locale:alternate" content="ru_RU" />
+        <meta property="og:locale:alternate" content="en_US" />
+        <meta property="og:locale:alternate" content="uk_UA" />
+        <meta property="og:locale:alternate" content="es_ES" />
+		<!-- /Languages: -->
+
+        <meta name="description" content="Пятничная тренировка Сплит на спина и трицепс 1й подход: малый вес 15 повторений (для разогрева) перерыв 1 мин. 2й подход: рабочий вес 7-8 повторений перерыв 2 мин. 3й подход: рабочий вес 7-8 повторен" />
+<meta name="keywords" content="Тренировка &amp;quot;пятница&amp;quot; спина и трицепс" />
+<link rel="canonical" href="https://smartprogress.do/goal/307109/" />
+<link rel="stylesheet" type="text/css" href="/css/main.css?4" />
+<title>Тренировка &quot;пятница&quot; спина и трицепс</title>
+        <script>
+            window.SMART = window.SMART || {};
+            window.SMART.config = window.SMART.config || {};
+            SMART.redirectUrl = 'https://smartprogress.do/site/redirect/?url=';
+            SMART.config.tokenName = 'YII_CSRF_TOKEN';
+            SMART.config.tokenVal = '69589fb482351b234a78296a73c38ac0a3a8d97e';
+            SMART.currency = {
+                sign: '&#8381;',
+                short: 'руб.',
+            };
+            window.USER = {
+                id: 0,
+                username: '',
+                avatar: '',
+                role: '',
+                time_zone: []            };
+        </script>
+
+        <script>
+    window.SMART = window.SMART || {};
+    window.GOALS_DATA = {"307109":{"id":"307109","name":"\u0422\u0440\u0435\u043d\u0438\u0440\u043e\u0432\u043a\u0430 &quot;\u043f\u044f\u0442\u043d\u0438\u0446\u0430&quot; \u0441\u043f\u0438\u043d\u0430 \u0438 \u0442\u0440\u0438\u0446\u0435\u043f\u0441","descr":"<p>\u041f\u044f\u0442\u043d\u0438\u0447\u043d\u0430\u044f \u0442\u0440\u0435\u043d\u0438\u0440\u043e\u0432\u043a\u0430<\/p>\n\n<p>\u0421\u043f\u043b\u0438\u0442 \u043d\u0430 <strong>\u0441\u043f\u0438\u043d\u0430<\/strong> \u0438 <strong>\u0442\u0440\u0438\u0446\u0435\u043f\u0441<\/strong><\/p>\n\n<p>1\u0439 \u043f\u043e\u0434\u0445\u043e\u0434: \u043c\u0430\u043b\u044b\u0439 \u0432\u0435\u0441 15 \u043f\u043e\u0432\u0442\u043e\u0440\u0435\u043d\u0438\u0439 (\u0434\u043b\u044f \u0440\u0430\u0437\u043e\u0433\u0440\u0435\u0432\u0430)<\/p>\n\n<p>\u043f\u0435\u0440\u0435\u0440\u044b\u0432 1 \u043c\u0438\u043d.<\/p>\n\n<p>2\u0439 \u043f\u043e\u0434\u0445\u043e\u0434: \u0440\u0430\u0431\u043e\u0447\u0438\u0439 \u0432\u0435\u0441 7-8 \u043f\u043e\u0432\u0442\u043e\u0440\u0435\u043d\u0438\u0439<\/p>\n\n<p>\u043f\u0435\u0440\u0435\u0440\u044b\u0432 2 \u043c\u0438\u043d.<\/p>\n\n<p>3\u0439 \u043f\u043e\u0434\u0445\u043e\u0434: \u0440\u0430\u0431\u043e\u0447\u0438\u0439 \u0432\u0435\u0441 7-8 \u043f\u043e\u0432\u0442\u043e\u0440\u0435\u043d\u0438\u0439<\/p>\n\n<p>\u043f\u0435\u0440\u0435\u0440\u044b\u0432 2 \u043c\u0438\u043d.<\/p>\n\n<p>4\u0439 \u043f\u043e\u0434\u0445\u043e\u0434: \u0440\u0430\u0431\u043e\u0447\u0438\u0439 \u0432\u0435\u0441 \u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c \u043f\u043e\u0432\u0442\u043e\u0440\u0435\u043d\u0438\u0439 (\u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c \u0434\u043b\u044f \u0442\u043e\u0433\u043e \u0447\u0442\u043e \u0431\u044b \u043f\u0440\u043e\u0432\u0435\u0440\u0438\u0442\u044c \u0441\u0442\u043e\u0438\u0442 \u043b\u0438 \u0443\u0432\u0435\u043b\u0438\u0447\u0438\u0442\u044c \u0440\u0430\u0431\u043e\u0447\u0438\u0439 \u0432\u0435\u0441)<\/p>\n\n<p>\u043f\u0435\u0440\u0435\u0440\u044b\u0432 \u043c\u0435\u0436\u0434\u0443 \u0443\u043f\u0440\u0430\u0436\u043d\u0435\u043d\u0438\u044f\u043c\u0438 1 \u043c\u0438\u043d.<\/p>\n\n<p>1. \u041f\u043e\u0434\u0442\u044f\u0433\u0438\u0432\u0430\u043d\u0438\u044f \u043d\u0430 \u043f\u0435\u0440\u0435\u043a\u043b\u0430\u0434\u0438\u043d\u0435 \u0445\u0432\u0430\u0442\u043e\u043c \u0441\u043d\u0438\u0437\u0443 (\u0441\u043f\u043e\u0441\u043e\u0431 \u0434\u043b\u044f \u0436\u0438\u0440\u043e\u0431\u0430\u0441\u0438\u043a\u043e\u0432 \u0442\u0438\u043f\u0430 \u043c\u0435\u043d\u044f, \u043d\u0430 \u0431\u0443\u0434\u0443\u0449\u0435\u0435 - \u043d\u043e\u0440\u043c\u0430\u043b\u044c\u043d\u044b\u0439 \u0445\u0432\u0430\u0442) \u0422\u0435 \u0436\u0435 4 \u043f\u043e\u0434\u0445\u043e\u0434\u0430 \u043d\u0430 \u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c \u043f\u043e\u0432\u0442\u043e\u0440\u0435\u043d\u0438\u0439.<\/p>\n\n<p>2. \u0420\u0430\u0437\u0433\u0438\u0431\u0430\u043d\u0438\u0435 \u0440\u0443\u043a \u0441 \u0433\u0430\u043d\u0442\u0435\u043b\u044f\u043c\u0438 \u043b\u0435\u0436\u0430 (\u0441\u0442\u043e\u044f)<\/p>\n\n<p>3. \u0422\u044f\u0433\u0438 \u0433\u0430\u043d\u0442\u0435\u043b\u0438 \u043e\u0434\u043d\u043e\u0439 \u0440\u0443\u043a\u043e\u0439 \u043a \u0442\u0443\u043b\u043e\u0432\u0438\u0449\u0443 \u0432 \u0443\u043f\u043e\u0440\u0435 \u043d\u0430 \u0441\u043a\u0430\u043c\u0435\u0439\u043a\u0443<\/p>\n\n<p>4. \u0420\u0430\u0437\u0433\u0438\u0431\u0430\u043d\u0438\u0435 \u043e\u0434\u043d\u043e\u0439 \u0440\u0443\u043a\u0438 \u0441 \u0433\u0430\u043d\u0442\u0435\u043b\u044c\u044e \u0438\u0437-\u0437\u0430 \u0433\u043e\u043b\u043e\u0432\u044b<\/p>","template_descr":null,"descr_short":"<p>\u041f\u044f\u0442\u043d\u0438\u0447\u043d\u0430\u044f \u0442\u0440\u0435\u043d\u0438\u0440\u043e\u0432\u043a\u0430<\/p> <p>\u0421\u043f\u043b\u0438\u0442 \u043d\u0430 \u0441\u043f\u0438\u043d\u0430 \u0438 \u0442\u0440\u0438\u0446\u0435\u043f\u0441<\/p> <p>1\u0439 \u043f\u043e\u0434\u0445\u043e\u0434: \u043c\u0430\u043b\u044b\u0439 \u0432\u0435\u0441 15 \u043f\u043e\u0432\u0442\u043e\u0440\u0435\u043d\u0438\u0439 (\u0434\u043b\u044f \u0440\u0430\u0437\u043e\u0433\u0440\u0435\u0432\u0430)<\/p> <p>\u043f\u0435\u0440\u0435\u0440\u044b\u0432 1 \u043c\u0438\u043d.<\/p> <p>2\u0439 \u043f\u043e\u0434\u0445\u043e\u0434: \u0440\u0430\u0431\u043e\u0447\u0438\u0439 \u0432\u0435\u0441 7-8 \u043f\u043e\u0432\u0442\u043e\u0440\u0435\u043d\u0438\u0439<\/p> <p>\u043f\u0435\u0440\u0435\u0440\u044b\u0432 2 \u043c\u0438\u043d.<\/p> <p>3\u0439 \u043f\u043e\u0434\u0445\u043e\u0434: \u0440\u0430\u0431\u043e\u0447\u0438\u0439 \u0432\u0435\u0441 7-8 \u043f\u043e\u0432\u0442\u043e\u0440\u0435\u043d\u0438\u0439<\/p> <p>\u043f\u0435\u0440\u0435\u0440\u044b\u0432 2 \u043c\u0438\u043d.<\/p> <p>4\u0439 \u043f\u043e\u0434\u0445\u043e\u0434: \u0440\u0430\u0431\u043e\u0447\u0438\u0439 \u0432\u0435\u0441 \u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c \u043f\u043e\u0432\u0442\u043e\u0440\u0435\u043d\u0438\u0439 (\u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c \u0434\u043b\u044f \u0442\u043e\u0433\u043e \u0447\u0442\u043e \u0431\u044b \u043f\u0440\u043e\u0432\u0435\u0440\u0438\u0442\u044c \u0441\u0442\u043e\u0438\u0442 \u043b\u0438 \u0443\u0432\u0435\u043b\u0438\u0447\u0438\u0442\u044c \u0440\u0430\u0431\u043e\u0447\u0438\u0439 \u0432\u0435\u0441)<\/p> <p>\u043f\u0435\u0440\u0435\u0440\u044b\u0432 \u043c\u0435\u0436\u0434\u0443 \u0443\u043f\u0440\u0430\u0436\u043d\u0435\u043d\u0438\u044f\u043c\u0438 1 \u043c\u0438\u043d.<\/p> <p>1. \u041f\u043e\u0434\u0442\u044f\u0433\u0438\u0432\u0430\u043d\u0438\u044f \u043d\u0430 \u043f\u0435\u0440\u0435\u043a\u043b\u0430\u0434\u0438\u043d\u0435 \u0445\u0432\u0430\u0442\u043e\u043c \u0441\u043d\u0438\u0437\u0443 (\u0441\u043f\u043e\u0441\u043e\u0431 \u0434\u043b\u044f \u0436\u0438\u0440\u043e\u0431\u0430\u0441\u0438\u043a\u043e\u0432 \u0442\u0438\u043f\u0430 \u043c\u0435\u043d\u044f, \u043d\u0430 \u0431\u0443\u0434\u0443\u0449\u0435\u0435 - \u043d\u043e\u0440\u043c\u0430\u043b\u044c\u043d\u044b\u0439 \u0445\u0432\u0430\u0442) \u0422\u0435 \u0436\u0435 4 \u043f\u043e\u0434\u0445\u043e\u0434\u0430 \u043d\u0430 \u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c \u043f\u043e\u0432\u0442\u043e\u0440\u0435\u043d\u0438\u0439.<\/p> <p>2. \u0420\u0430\u0437\u0433\u0438\u0431\u0430\u043d\u0438\u0435 \u0440\u0443\u043a \u0441 \u0433\u0430\u043d\u0442\u0435\u043b\u044f\u043c\u0438 \u043b\u0435\u0436\u0430 (\u0441\u0442\u043e\u044f)<\/p> <p>3. \u0422\u044f\u0433\u0438 \u0433\u0430\u043d\u0442\u0435\u043b\u0438 \u043e\u0434\u043d\u043e\u0439 \u0440\u0443\u043a\u043e\u0439 \u043a \u0442\u0443\u043b\u043e\u0432\u0438\u0449\u0443 \u0432 \u0443\u043f\u043e\u0440\u0435 \u043d\u0430 \u0441\u043a\u0430\u043c\u0435\u0439\u043a\u0443<\/p> <p>4. \u0420\u0430\u0437\u0433\u0438\u0431\u0430\u043d\u0438\u0435 \u043e\u0434\u043d\u043e\u0439 \u0440\u0443\u043a\u0438 \u0441 \u0433\u0430\u043d\u0442\u0435\u043b\u044c\u044e \u0438\u0437-\u0437\u0430 \u0433\u043e\u043b\u043e\u0432\u044b<\/p><p>...<\/p>","ending_criteria":"<p>\u0423\u0432\u0435\u043b\u0438\u0447\u0435\u043d\u0438\u0435 \u0444\u0438\u0437\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u043f\u043e\u043a\u0430\u0437\u0430\u0442\u0435\u043b\u0435\u0439 \u0432 2 \u0440\u0430\u0437\u0430<\/p>","personal_resources":"","ecology":"<p>\u042d\u0442\u0430 \u0446\u0435\u043b\u044c - \u0447\u0430\u0441\u0442\u044c \u0446\u0435\u043b\u0438 \"\u0423\u043b\u0443\u0447\u0448\u0438\u0442\u044c \u0444\u0438\u0437\u0438\u0447\u0435\u0441\u043a\u043e\u0435 \u0441\u043e\u0441\u0442\u043e\u044f\u043d\u0438\u0435 \u043a 2020\" <a href=\"https:\/\/smartprogress.do\/goal\/305146\/\" target=\"_blank\">https:\/\/smartprogress.do\/goal\/305146\/<\/a><\/p>","conclusion":null,"conclusion_post_id":"3456683","category":"10","user_id":"302787","added":"2018-02-25 16:05:33","end_date":"0000-00-00","status":"successful","completed_date":"2019-02-13 18:10:08","privacy":"0","rating":"2","count_posts":"7","count_comments":"0","count_subscriptions":"0","progress":"100.000","last_activity":"2019-01-31 16:05:19","moderated":"normal","views":"943","views_users":"0","language":"ru","order":"0","team":"0","help_section":"0","help_date":"0000-00-00 00:00:00","order_date":"2018-02-25 16:05:33","promise_cost":"0.00","promise_cost_type":"1","promise_cost_status":null,"source_template_id":null,"paid_template":"0","special":"0","bgcolor":null,"comment_privacy":"0","timeInformedModeration":null,"search":"\u0422\u0420\u0415\u041d\u0418\u0420\u041e\u0412\u041a\u0410 \u041f\u042f\u0422\u041d\u0418\u0426\u0410 \u0421\u041f\u0418\u041d \u0422\u0420\u0418\u0426\u0415\u041f\u0421 \u0423\u0412\u0415\u041b\u0418\u0427\u0415\u041d\u0418\u0415 \u0424\u0418\u0417\u0418\u0427\u0415\u0421\u041a\u0418\u0419 \u041f\u041e\u041a\u0410\u0417\u0410\u0422\u0415\u041b\u042c \u0420\u0410\u0417","group_id":"5","order_random":"0.0000295306","list_view":"1","list_click":"1","list_relevant_groups":"0","activity_index":"0","habit":"0","username":"\u041f\u0430\u0432\u0435\u043b","avatar":"5db2a41dd0e60","birthday":"1982-09-19","currency":"1","role":"pro","verified":"0","country_name":"\u0420\u043e\u0441\u0441\u0438\u044f","city_name":"\u0421\u0430\u043d\u043a\u0442-\u041f\u0435\u0442\u0435\u0440\u0431\u0443\u0440\u0433","category_name":"\u0421\u043f\u043e\u0440\u0442 \u0438 \u0424\u0438\u0442\u043d\u0435\u0441","my_rating":"0","subscription":"0","in_coaching_program":"0","isUserInTeam":null,"alias":false,"steps":[{"id":"2659793","goal_id":"307109","sub_goal_id":"0","parent_id":null,"name":"\u041f\u043e\u0434\u0442\u044f\u0433\u0438\u0432\u0430\u043d\u0438\u044f \u043d\u0430 \u043f\u0435\u0440\u0435\u043a\u043b\u0430\u0434\u0438\u043d\u0435","descr":"<p>\u041a\u0430\u043a \u0434\u0435\u043b\u0430\u0442\u044c \u043f\u0440\u0430\u0432\u0438\u043b\u044c\u043d\u043e \u043e\u043f\u0438\u0441\u0430\u043d\u043e <a href=\"http:\/\/smartprogress.do\/site\/redirect\/?url=http%3A%2F%2Fwww.iron-health.ru%2Ftehnika%2Fpodtyagivaniya-uzkim-xvatom-osobennosti-texnika-video.html\" target=\"_blank\">\u0442\u0443\u0442<\/a><\/p> <p>13.02.2018 \u044f \u0434\u0435\u043b\u0430\u043b \u041d\u041e\u041b\u042c<\/p> <p><strong>\u041a 31.12.2018: 20\/20\/20\/20<\/strong><\/p>","template_descr":null,"price":"0.00","start_date":"0000-00-00","end_date":"0000-00-00","visual":"a:4:{s:4:\"line\";i:1;s:18:\"start_date_percent\";d:0;s:16:\"end_date_percent\";d:25;s:13:\"withInOneLine\";d:25;}","status":"completed","order":"1","count_posts":"0","images":[{"m":{"url":"\/uploadImages\/001127963_m.jpg","width":267,"height":250},"id":"1127963","bg":"#ffffff","width":267,"height":250,"url":"\/uploadImages\/001127963.jpg"}]},{"id":"2659960","goal_id":"307109","sub_goal_id":"0","parent_id":null,"name":"\u0420\u0430\u0437\u0433\u0438\u0431\u0430\u043d\u0438\u0435 \u043e\u0431\u0435\u0438\u0445 \u0440\u0443\u043a \u0441 \u0433\u0430\u043d\u0442\u0435\u043b\u044c\u044e \u0438\u0437-\u0437\u0430 \u0433\u043e\u043b\u043e\u0432\u044b","descr":"<p>\u041a\u0430\u043a \u0434\u0435\u043b\u0430\u0442\u044c \u043f\u0440\u0430\u0432\u0438\u043b\u044c\u043d\u043e \u043e\u043f\u0438\u0441\u0430\u043d\u043e <a href=\"http:\/\/smartprogress.do\/site\/redirect\/?url=http%3A%2F%2Fwww.iron-health.ru%2Ftehnika%2Fkak-pravilno-vypolnyat-razgibaniya-ruk-iz-za-golovy.html\" target=\"_blank\">\u0442\u0443\u0442<\/a><\/p>","template_descr":null,"price":"0.00","start_date":"0000-00-00","end_date":"0000-00-00","visual":"a:4:{s:4:\"line\";i:1;s:18:\"start_date_percent\";d:25;s:16:\"end_date_percent\";d:50;s:13:\"withInOneLine\";d:25;}","status":"completed","order":"2","count_posts":"0","images":[{"m":{"url":"\/uploadImages\/001127981_m.jpg","width":450,"height":366},"id":"1127981","bg":"#fdfdfd","width":1024,"height":834,"url":"\/uploadImages\/001127981.jpg"}]},{"id":"2659904","goal_id":"307109","sub_goal_id":"0","parent_id":null,"name":"\u0422\u044f\u0433\u0438 \u0433\u0430\u043d\u0442\u0435\u043b\u0438 \u043e\u0434\u043d\u043e\u0439 \u0440\u0443\u043a\u043e\u0439","descr":"<p>\u041a\u0430\u043a \u0434\u0435\u043b\u0430\u0442\u044c \u043f\u0440\u0430\u0432\u0438\u043b\u044c\u043d\u043e \u043e\u043f\u0438\u0441\u0430\u043d\u043e <a href=\"http:\/\/smartprogress.do\/site\/redirect\/?url=http%3A%2F%2Fwww.iron-health.ru%2Ftehnika%2Ftyaga-ganteli-odnoj-rukoj-delaj-pravilno.html\" target=\"_blank\">\u0442\u0443\u0442<\/a><\/p>","template_descr":null,"price":"0.00","start_date":"0000-00-00","end_date":"0000-00-00","visual":"a:4:{s:4:\"line\";i:1;s:18:\"start_date_percent\";d:50;s:16:\"end_date_percent\";d:75;s:13:\"withInOneLine\";d:25;}","status":"completed","order":"3","count_posts":"0","images":[{"m":{"url":"\/uploadImages\/001127977_m.jpg","width":366,"height":450},"id":"1127977","bg":"#ffffff","width":824,"height":1011,"url":"\/uploadImages\/001127977.jpg"}]},{"id":"2659846","goal_id":"307109","sub_goal_id":"0","parent_id":null,"name":"\u0420\u0430\u0437\u0433\u0438\u0431\u0430\u043d\u0438\u0435 \u0440\u0443\u043a \u0441 \u0433\u0430\u043d\u0442\u0435\u043b\u044f\u043c\u0438 \u043b\u0435\u0436\u0430 (\u0441\u0442\u043e\u044f)","descr":"<p>\u041a\u0430\u043a \u0434\u0435\u043b\u0430\u0442\u044c \u043f\u0440\u0430\u0432\u0438\u043b\u044c\u043d\u043e \u043e\u043f\u0438\u0441\u0430\u043d\u043e <a href=\"http:\/\/smartprogress.do\/site\/redirect\/?url=http%3A%2F%2Fwww.iron-health.ru%2Ftehnika%2Ffrancuzskij-zhim-lezha-s-gantelyami-osobennosti-texnika-vypolneniya-video.html\" target=\"_blank\">\u0442\u0443\u0442<\/a><\/p>","template_descr":null,"price":"0.00","start_date":"0000-00-00","end_date":"0000-00-00","visual":"a:4:{s:4:\"line\";i:1;s:18:\"start_date_percent\";d:75;s:16:\"end_date_percent\";d:100;s:13:\"withInOneLine\";d:25;}","status":"completed","order":"4","count_posts":"0","images":[{"m":{"url":"\/uploadImages\/001127961_m.jpg","width":450,"height":344},"id":"1127961","bg":"#ffffff","width":792,"height":607,"url":"\/uploadImages\/001127961.jpg"}]}],"images":[{"id":"1127940","obj_id":"307109","obj_type":"goal","date":"2018-02-25 16:05:02","sizes":{"0":{"0":1200,"1":675,"url":"\/uploadImages\/001127940.jpg"},"l":{"0":850,"1":478,"url":"\/uploadImages\/001127940_l.jpg"},"l_crop":{"0":848,"1":450,"url":"\/uploadImages\/001127940_l_crop.jpg"},"m":{"0":500,"1":281,"url":"\/uploadImages\/001127940_m.jpg"},"m_crop":{"0":498,"1":280,"url":"\/uploadImages\/001127940_m_crop.jpg"},"xs":{"0":50,"1":50,"url":"\/uploadImages\/001127940_xs.jpg"}},"crop":"0.50","order":"0","bg":"#000000","url":"\/uploadImages\/001127940.jpg","width":1200,"height":675}],"user_location":"\u0420\u043e\u0441\u0441\u0438\u044f, \u0421\u0430\u043d\u043a\u0442-\u041f\u0435\u0442\u0435\u0440\u0431\u0443\u0440\u0433","user_age":42,"left":["0 \u0434\u043d\u0435\u0439"],"team_users":[],"team_users_list":["302787"],"promise_cost_timer":null,"likes":[],"group":{"id":"5","name":"\u0411\u043e\u0434\u0438\u0431\u0438\u043b\u0434\u0438\u043d\u0433","keys":"\u0411\u043e\u0434\u0438\u0431\u0438\u043b\u0434* OR \nbodybuilding OR \n\"\u041c\u042b\u0428\u0415\u0427\u041d\u042b\u0419 \u041c\u0410\u0421\u0421\u0410\"~3 OR \n\u041d\u0410\u041a\u0410\u0427\u0410\u0422\u042c* OR \n\u041f\u041e\u0414\u041a\u0410\u0427\u0410\u0422\u042c* OR \n\u0420\u0415\u041b\u042c\u0415\u0424\u041d\u042b\u0419 OR \n\u041f\u041e\u0414\u0421\u0423\u0428\u0418\u0422\u042c\u0421\u042f OR \n\u0421\u0423\u0428\u041a\u0410 OR \n\u0410\u0422\u041b\u0415\u0422* OR \n\u0411\u0418\u0426\u0415\u041f\u0421 OR \n\u041a\u0423\u041b\u042c\u0422\u0423\u0420\u0418\u0417\u041c OR\n(\u0423\u041c\u0415\u041d\u042c\u0428\u0418\u0422\u042c AND \u0416\u0418\u0420) OR\n(\u0442\u0440\u0435\u043d\u0430\u0436\u0435\u0440* AND \u0417\u0410\u041b) OR \n(\t\n    (\t\n        \u041d\u0410\u0411\u0420\u0410\u0422\u042c OR \n     \t\u0423\u0412\u0415\u041b\u0418\u0427\u0418\u0422\u042c OR \n     \t\u041d\u0410\u041a\u0410\u0427\u0410\u0422\u042c OR \n        \u041f\u0420\u041e\u041a\u0410\u0427\u0410\u0422\u042c\n    ) AND (\n        \u041c\u0410\u0421\u0421\u0410 OR \n        \u0412\u0415\u0421 OR \n        \u041a\u0413 OR \n        \u041a\u0418\u041b\u041e\u0413\u0420\u0410\u041c\u041c\n    )\n) OR \n(\t\u0422\u0415\u041b\u041e AND \n \t(\n        \u041c\u0410\u0421\u0421\u0410 OR \n        \u041a\u0420\u0410\u0421\u0418\u0412\u042b\u0419 OR\n        \u0418\u0414\u0415\u0410\u041b\u042c\u041d\u042b\u0419 OR\n        \u041d\u0410\u041a\u0410\u0422\u0418\u0422\u042c OR\n        \u041f\u041e\u0414\u0421\u0423\u0428\u0418\u0422\u042c\n    )\n) OR \n(\t\u041a\u0413 AND \u0417\u0410 AND \n\t(\n\t\t\u041c\u0415\u0421\u042f\u0426 OR \n        \u0413\u041e\u0414 OR \n        \u041d\u0415\u0414\u0415\u041b\u042f\n    )\n) OR\n(\n    \u041c\u0410\u0421\u0421\u0410 AND \u0414\u041e AND (\n        \u041a\u0413 OR\n        \u041a\u0418\u041b\u041e\u0413\u0420\u0410\u041c\u041c\n    )\n)\n","language":"ru","count_users":"1071","count_goals":"1203","main_page":"1","category_id":"10","images":[{"id":"125471","obj_id":"5","obj_type":"group","date":"2014-05-11 08:46:33","sizes":{"0":{"0":291,"1":337,"url":"\/uploadImages\/000125471.jpg"},"m":{"0":291,"1":337,"url":"\/uploadImages\/000125471_m.jpg"}},"crop":null,"order":"0","bg":"#030305","url":"\/uploadImages\/000125471.jpg","width":291,"height":337}]},"subscribers_list":[],"liked":"0","is_own":0,"url":"\/goal\/307109\/","share_descr":"\u041f\u044f\u0442\u043d\u0438\u0447\u043d\u0430\u044f \u0442\u0440\u0435\u043d\u0438\u0440\u043e\u0432\u043a\u0430 \u0421\u043f\u043b\u0438\u0442 \u043d\u0430 \u0441\u043f\u0438\u043d\u0430 \u0438 \u0442\u0440\u0438\u0446\u0435\u043f\u0441 1\u0439 \u043f\u043e\u0434\u0445\u043e\u0434: \u043c\u0430\u043b\u044b\u0439 \u0432\u0435\u0441 15 \u043f\u043e\u0432\u0442\u043e\u0440\u0435\u043d\u0438\u0439 (\u0434\u043b\u044f \u0440\u0430\u0437\u043e\u0433\u0440\u0435\u0432\u0430) \u043f\u0435\u0440\u0435\u0440\u044b\u0432 1 \u043c\u0438\u043d. 2\u0439 \u043f\u043e\u0434\u0445\u043e\u0434: \u0440\u0430\u0431\u043e\u0447\u0438\u0439 \u0432\u0435\u0441 7-8 \u043f\u043e\u0432\u0442\u043e\u0440\u0435\u043d\u0438\u0439 \u043f\u0435\u0440\u0435\u0440\u044b\u0432 2 \u043c\u0438\u043d. 3\u0439 \u043f\u043e\u0434\u0445\u043e\u0434: \u0440\u0430\u0431\u043e\u0447\u0438\u0439 \u0432\u0435\u0441 7-8 \u043f\u043e\u0432\u0442\u043e\u0440\u0435\u043d","share_image":"https:\/\/smartprogress.do\/uploadImages\/001127940.jpg","share_url":"https:\/\/smartprogress.do\/goal\/307109\/?utm_source=social&utm_campaign="}};
+</script>
+        <script>
+        window.ssr_json_67626ec3c788a={"url":"https:\/\/smartprogress.do\/goal\/307109\/?utm_source=social&utm_campaign=","title":"\u0426\u0435\u043b\u044c: \u0422\u0440\u0435\u043d\u0438\u0440\u043e\u0432\u043a\u0430 %22\u043f\u044f\u0442\u043d\u0438\u0446\u0430%22 \u0441\u043f\u0438\u043d\u0430 \u0438 \u0442\u0440\u0438\u0446\u0435\u043f\u0441 (SmartProgress)","descr":"\u041f\u044f\u0442\u043d\u0438\u0447\u043d\u0430\u044f \u0442\u0440\u0435\u043d\u0438\u0440\u043e\u0432\u043a\u0430 \u0421\u043f\u043b\u0438\u0442 \u043d\u0430 \u0441\u043f\u0438\u043d\u0430 \u0438 \u0442\u0440\u0438\u0446\u0435\u043f\u0441 1\u0439 \u043f\u043e\u0434\u0445\u043e\u0434: \u043c\u0430\u043b\u044b\u0439 \u0432\u0435\u0441 15 \u043f\u043e\u0432\u0442\u043e\u0440\u0435\u043d\u0438\u0439 (\u0434\u043b\u044f \u0440\u0430\u0437\u043e\u0433\u0440\u0435\u0432\u0430) \u043f\u0435\u0440\u0435\u0440\u044b\u0432 1 \u043c\u0438\u043d. 2\u0439 \u043f\u043e\u0434\u0445\u043e\u0434: \u0440\u0430\u0431\u043e\u0447\u0438\u0439 \u0432\u0435\u0441 7-8 \u043f\u043e\u0432\u0442\u043e\u0440\u0435\u043d\u0438\u0439 \u043f\u0435\u0440\u0435\u0440\u044b\u0432 2 \u043c\u0438\u043d. 3\u0439 \u043f\u043e\u0434\u0445\u043e\u0434: \u0440\u0430\u0431\u043e\u0447\u0438\u0439 \u0432\u0435\u0441 7-8 \u043f\u043e\u0432\u0442\u043e\u0440\u0435\u043d...","img":"https:\/\/smartprogress.do\/uploadImages\/001127940.jpg","pos":"left","obj_id":"307109","obj_type":"goal"};window.ssr_json_67626ec3c7949=[];window.ssr_json_67626ec3c796b=false;window.ssr_json_67626ec3c80f7=[];window.ssr_json_67626ec3c8133=[];window.ssr_json_67626ec3c8bbe=[{"id":"3456683","obj_id":"307109","obj_type":"0","type":"post","parent_post_id":"0","user_id":"302787","step_id":"0","date":"2019-02-13 18:10:07","msg":"<p>\u0426\u0435\u043b\u044c \u0437\u0430\u0432\u0435\u0440\u0448\u0430\u044e \u0438\u0431\u043e \u043e\u043d\u0430 - \u044d\u0442\u043e \u0447\u0430\u0441\u0442\u044c \u043f\u0440\u043e\u0446\u0435\u0441\u0441\u0430. \u0422\u044f\u043f\u043d\u0438\u0446\u0430 \u0443\u0436\u0435 \u0432\u043e\u0448\u043b\u0430 \u0432 \u0440\u0438\u0442\u0443\u0430\u043b, \u0442\u0430\u043a \u0447\u0442\u043e \u0431\u0435\u0441\u0441\u043c\u044b\u0441\u043b\u0435\u043d\u043d\u043e \u043f\u043b\u043e\u0434\u0438\u0442\u044c \u0446\u0435\u043b\u0438.<\/p>","count_comments":"0","rating":"0","status":"1","style":null,"username":"\u041f\u0430\u0432\u0435\u043b","avatar":"5db2a41dd0e60","last_activity":"2019-01-31 16:05:19","days_from_start":"354","step_name":null,"my_rating":"0","subscription":"0","allow_edit":0,"allow_delete":0,"user":{"id":"302787","username":"\u041f\u0430\u0432\u0435\u043b","avatar":"5db2a41dd0e60"},"images":[],"comments":[],"likes":[]},{"id":"3405530","obj_id":"307109","obj_type":"0","type":"post","parent_post_id":"0","user_id":"302787","step_id":"0","date":"2019-01-20 08:57:30","msg":"<p>19.01.2019<\/p> <p>\u0423\u043f\u0440\u0430\u0436\u043d\u0435\u043d\u0438\u044f \u043f\u0440\u0435\u0442\u0435\u0440\u043f\u0435\u043b\u0438 \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u044f \u043e\u0442\u043d\u043e\u0441\u0438\u0442\u0435\u043b\u044c\u043d\u043e \u0442\u0435\u0445, \u0447\u0442\u043e \u0431\u044b\u043b\u0438 \u0440\u0430\u043d\u044c\u0448\u0435. <\/p>","count_comments":"0","rating":"0","status":"1","style":null,"username":"\u041f\u0430\u0432\u0435\u043b","avatar":"5db2a41dd0e60","last_activity":"2019-01-31 16:05:19","days_from_start":"330","step_name":null,"my_rating":"0","subscription":"0","allow_edit":0,"allow_delete":0,"user":{"id":"302787","username":"\u041f\u0430\u0432\u0435\u043b","avatar":"5db2a41dd0e60"},"images":[{"m":{"url":"\/uploadImages\/001296355_m.jpg","width":456,"height":395},"id":"1296355","bg":"#fcfcfc","width":456,"height":395,"url":"\/uploadImages\/001296355.jpg"}],"comments":[],"likes":[]},{"id":"3402010","obj_id":"307109","obj_type":"0","type":"post","parent_post_id":"0","user_id":"302787","step_id":"0","date":"2019-01-18 11:34:28","msg":"<p>\u0412\u043e\u0437\u043e\u0431\u043d\u043e\u0432\u043b\u044f\u0435\u043c \u0446\u0435\u043b\u044c<\/p>","count_comments":"0","rating":"0","status":"1","style":null,"username":"\u041f\u0430\u0432\u0435\u043b","avatar":"5db2a41dd0e60","last_activity":"2019-01-31 16:05:19","days_from_start":"328","step_name":null,"my_rating":"0","subscription":"0","allow_edit":0,"allow_delete":0,"user":{"id":"302787","username":"\u041f\u0430\u0432\u0435\u043b","avatar":"5db2a41dd0e60"},"images":[{"m":{"url":"\/uploadImages\/001295318_m.jpg","width":397,"height":432},"id":"1295318","bg":"#fcfcfc","width":397,"height":432,"url":"\/uploadImages\/001295318.jpg"}],"comments":[],"likes":[]},{"id":"2871826","obj_id":"307109","obj_type":"0","type":"post","parent_post_id":"0","user_id":"302787","step_id":"0","date":"2018-03-17 06:53:10","msg":"<p>\u0420\u0430\u0437\u0431\u043e\u0440 \u043f\u043e\u043b\u0435\u0442\u043e\u0432: <\/p> <p>1. \u041f\u043e\u0434\u0442\u044f\u0433\u0438\u0432\u0430\u043d\u0438\u044f. \u041f\u0430\u0440\u0430\u043b\u043b\u0435\u043b\u044c\u043d\u043e \u0441\u043e \u0441\u043d\u0438\u0436\u0435\u043d\u0438\u0435\u043c \u0432\u0435\u0441\u0430 \u0438 \u043f\u0440\u043e\u0433\u0440\u0435\u0441\u0441\u043e\u043c \u043e\u043f\u0440\u0435\u0434\u0435\u043b\u0435\u043d\u043d\u044b\u0445 \u0433\u0440\u0443\u043f\u043f \u043c\u044b\u0448\u0446 \u0431\u0443\u0434\u0435\u0442 \u0440\u0430\u0441\u0442\u0438 \u0440\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442. \u041d\u0435 \u0443\u0432\u0435\u0440\u0435\u043d \u0447\u0442\u043e \u043d\u0430\u0434\u043e \"\u0431\u043e\u043c\u0431\u0438\u0442\u044c\" \u043f\u0435\u0440\u0432\u044b\u0439 \u043f\u043e\u0434\u0445\u043e\u0434 \u043d\u0430 \u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c, \u043f\u043e\u0442\u043e\u043c\u0443 \u0441\u0434\u0435\u043b\u0430\u043b 8, \u0445\u043e\u0442\u044f \u043c\u043e\u0433 \u0438 10 \u043f\u043e \u043e\u0449\u0443\u0449\u0435\u043d\u0438\u044f\u043c. 10 - \u044d\u0442\u043e \u043f\u0441\u0438\u0445\u043e\u043b\u043e\u0433\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u043e\u0442\u0441\u0435\u0447\u043a\u0430. \u041f\u043b\u0430\u043d\u043a\u0430. \u0422\u0430\u043a \u0447\u0442\u043e \u043f\u043e\u0431\u0438\u0432 \u043f\u043b\u0430\u043d\u043a\u0443 \u0431\u0443\u0434\u0435\u0442 \u043d\u043e\u0432\u0430\u044f )<\/p> <p>2. \u0420\u0430\u0437\u0433\u0438\u0431\u0430\u043d\u0438\u044f \u0440\u0443\u043a \u043d\u0430 \u0442\u0440\u0438\u0446\u0435\u043f\u0441 \u043b\u0435\u0436\u0430. \u041a\u043b\u0430\u0441\u0441\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u043e\u0448\u0438\u0431\u043a\u0430: \u0437\u0430\u0431\u044b\u0442\u044c \u0447\u0435\u0440\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u0435 \u0433\u0440\u0443\u043f\u043f \u043c\u044b\u0448\u0446. \u0421\u043b\u0438\u0448\u043a\u043e\u043c \u043c\u043d\u043e\u0433\u043e \u043c\u044b\u0441\u043b\u0435\u0439 \u0432 \u0433\u043e\u043b\u043e\u0432\u0435, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u043d\u0430\u0434\u043e\u0431\u043d\u043e \u0438\u0437\u0433\u043e\u043d\u044f\u0442\u044c \u043d\u0430 \u0432\u0440\u0435\u043c\u044f \u0442\u0440\u0435\u043d\u0438\u0440\u043e\u0432\u043a\u0438. \u0417\u0430\u0431\u0438\u043b \u0441\u043d\u0430\u0447\u0430\u043b\u0430 \u0441\u043f\u0438\u043d\u0443, \u0430 \u043f\u043e\u0442\u043e\u043c \u043f\u0435\u0440\u0435\u0448\u0435\u043b \u043a \u0440\u0443\u043a\u0430\u043c. \u0420\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442 - \u043d\u0435 \u043e\u0447\u0435\u043d\u044c. \u0411\u0443\u0434\u0435\u0442 \u0443\u0440\u043e\u043a\u043e\u043c, \u0433\u043b\u0430\u0432\u043d\u043e\u0435 \u0447\u0442\u043e \u044f \u0441\u0434\u0435\u043b\u0430\u043b \u0432\u044b\u0432\u043e\u0434.<\/p> <p>3. \u0422\u044f\u0433\u0438. \u041d\u0443 \u0442\u044f\u0433\u0438 \u0438 \u0440\u0430\u043d\u044c\u0448\u0435 \u043d\u0435 \u0431\u044b\u043b\u0438 \u0441\u043b\u0438\u0448\u043a\u043e\u043c \u0443\u0436 \u0437\u0430\u0431\u043e\u0439\u043d\u044b\u043c \u0443\u043f\u0440\u0430\u0436\u043d\u0435\u043d\u0438\u0435\u043c. \u0425\u043e\u0442\u044f \u0435\u0441\u043b\u0438 \u0434\u0435\u043b\u0430\u0442\u044c \u043c\u0435\u0434\u043b\u0435\u043d\u043d\u043e \u0438 \u0442\u0435\u0445\u043d\u0438\u0447\u043d\u043e. \u043d\u0430 \u043f\u043e\u0434\u044a\u0435\u043c\u0435 \u0432\u0437\u0440\u044b\u0432\u0430\u0442\u044c, \u0430 \u043e\u043f\u0443\u0441\u043a\u0430\u0442\u044c \u043c\u0435\u0434\u043b\u0435\u043d\u043d\u043e, \u0442\u043e \u0432\u0441\u044f \u0440\u0443\u043a\u0430 \u043e\u0447\u0435\u043d\u044c \u0431\u044b\u0441\u0442\u0440\u043e \u0437\u0430\u0431\u0438\u0432\u0430\u0435\u0442\u0441\u044f. \u041e\u0434\u043d\u043e \u0438\u0437 \u043c\u043e\u0438\u0445 \u043b\u044e\u0431\u0438\u043c\u044b\u0445 \u0443\u043f\u0440\u0430\u0436\u043d\u0435\u043d\u0438\u0439. <\/p> <p>4. \u0420\u0430\u0437\u0433\u0438\u0431\u0430\u043d\u0438\u044f \u0438\u0437-\u0437\u0430 \u0447\u0430\u0439\u043d\u0438\u043a\u0430. \u041d\u0443 \u0442\u0443\u0442 \u043c\u0435\u043d\u044f \u043f\u043e\u043f\u0435\u0440\u043b\u043e \u043f\u0440\u044f\u043c\u043e \u0442\u0430\u043a\u0438. \u041e\u0442\u043a\u0443\u0434\u0430 \u0441\u0438\u043b\u0435\u043d\u043a\u0438 \u043f\u043e\u044f\u0432\u0438\u043b\u0438\u0441\u044c - \u043d\u0435 \u0437\u043d\u0430\u044e, \u043d\u043e \u043c\u043d\u0435 \u043a\u0430\u0436\u0435\u0442\u0441\u044f \u044d\u0442\u043e \u0438\u0437-\u0437\u0430 \u043c\u0430\u043b\u0435\u043d\u044c\u043a\u043e\u0433\u043e \u0432\u0435\u0441\u0430. \u0410 \u0441 \u0434\u0440\u0443\u0433\u043e\u0439 \u0441\u0442\u043e\u0440\u043e\u043d\u044b \u0435\u0441\u043b\u0438 \u0432\u0437\u044f\u0442\u044c \u0431\u043e\u043b\u044c\u0448\u043e\u0439 \u0440\u0430\u0431\u043e\u0447\u0438\u0439 \u0432\u0435\u0441, \u0442\u043e \u0431\u0443\u0434\u0435\u0442 \u0442\u0440\u0430\u0432\u043c\u0430 \u0441\u043f\u0438\u043d\u044b, \u043b\u0438\u0431\u043e \u0433\u0430\u043d\u0442\u0435\u043b\u044c \u043c\u043d\u0435 \u0448\u043b\u0435\u043f\u043d\u0435\u0442\u0441\u044f \u043d\u0430 \u043f\u044f\u0442\u043a\u0438. \u0410 \u043a\u0430\u043a \u043d\u0430\u0441 \u0432 \u0430\u0440\u043c\u0438\u0438 \u0443\u0447\u0438\u043b\u0438 - \u043b\u0443\u0447\u0448\u0435 \u043f\u0435\u0440\u0435\u0431\u0434\u0435\u0442\u044c, \u0447\u0435\u043c \u043d\u0435\u0434\u043e\u0431\u0434\u0435\u0442\u044c (\u0437). \u0422\u0430\u043a \u0447\u0442\u043e \u043f\u043e\u043a\u0430 \u0442\u0430\u043a. \u0422\u0435\u043c \u043d\u0435 \u043c\u0435\u043d\u0435\u0435 \u0442\u0440\u0438\u0446\u0435\u043f\u0441 \u043e\u0449\u0443\u0449\u0430\u0435\u0442\u0441\u044f. <\/p> <p>5. \u0428\u0440\u0430\u0433\u0438. \u0427\u0443\u0442\u044c \u043d\u0435 \u0437\u0430\u0431\u044b\u043b \u043f\u0440\u043e \u0448\u0440\u0430\u0433\u0438) \u0428\u0440\u0430\u0433\u0438 - \u0438\u0437\u0438-\u043f\u0438\u0437\u0438. \u041c\u043e\u0436\u0435\u0442 \u0431\u044b\u0442\u044c \u0442\u0430\u043a \u0441\u0430\u043c\u043e \u0441\u043e\u0431\u043e \u043f\u043e\u043b\u0443\u0447\u0430\u0435\u0442\u0441\u044f, \u043d\u043e \u043c\u043d\u0435 \u0438\u0445 \u043e\u0441\u043e\u0431\u043e \u0438 \u0434\u0435\u043b\u0430\u0442\u044c \u043d\u0435 \u043d\u0430\u0434\u043e, \u0432\u043a\u043b\u044e\u0447\u0438\u043b \u0432 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0443 \u0447\u0442\u043e \u0431\u044b \u0431\u044b\u043b\u043e. \u0422\u043e\u043b\u0441\u0442\u0443\u044e \u0448\u0435\u044e \u0441\u0432\u0435\u0440\u043d\u0443\u0442\u044c \u0441\u043b\u043e\u0436\u043d\u0435\u0435 )<\/p>","count_comments":"0","rating":"0","status":"1","style":null,"username":"\u041f\u0430\u0432\u0435\u043b","avatar":"5db2a41dd0e60","last_activity":"2019-01-31 16:05:19","days_from_start":"21","step_name":null,"my_rating":"0","subscription":"0","allow_edit":0,"allow_delete":0,"user":{"id":"302787","username":"\u041f\u0430\u0432\u0435\u043b","avatar":"5db2a41dd0e60"},"images":[{"m":{"url":"\/uploadImages\/001139202_m.jpg","width":281,"height":500},"id":"1139202","bg":"#ffffff","width":675,"height":1200,"url":"\/uploadImages\/001139202.jpg"}],"comments":[],"likes":[]},{"id":"2860122","obj_id":"307109","obj_type":"0","type":"post","parent_post_id":"0","user_id":"302787","step_id":"0","date":"2018-03-11 11:06:50","msg":"<p>\u0412\u043e\u0442 \u0447\u0442\u043e \u0431\u044b\u043b\u043e \u0432\u0447\u0435\u0440\u0430:<\/p> <p>\u0414\u043b\u044f \u043d\u0430\u0447\u0430\u043b\u0430 \u044f \u043f\u043e\u043f\u0440\u043e\u0431\u043e\u0432\u0430\u043b \u0432\u0435\u0441\u0442\u0438 \u0437\u0430\u043f\u0438\u0441\u0438 \u0442\u0440\u0435\u043d\u0438\u0440\u043e\u0432\u043a\u0438 \u043d\u0435 \u0432 XBodybuild, \u0430 \u0432 JeFit. \u0427\u0442\u043e \u044d\u0442\u043e \u0434\u0430\u043b\u043e? \u042d\u0442\u043e \u0434\u0430\u043b\u043e \u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e\u0441\u0442\u044c \u0441\u043b\u0435\u0434\u0438\u0442\u044c \u0437\u0430 IRM. \u0418 \u043f\u043e\u043d\u0438\u043c\u0430\u0442\u044c \u0441\u0442\u043e\u0438\u0442 \u043b\u0438 \u0443\u0432\u0435\u043b\u0438\u0447\u0438\u0432\u0430\u0442\u044c \u0432\u0435\u0441 \u0442\u043e\u0433\u043e \u0438\u043b\u0438 \u0438\u043d\u043e\u0433\u043e \u0443\u043f\u0440\u0430\u0436\u043d\u0435\u043d\u0438\u044f. \u042d\u0442\u043e \u043a\u0440\u0430\u0439\u043d\u0435 \u0432\u0430\u0436\u043d\u043e \u0434\u043b\u044f \u043f\u0440\u043e\u0433\u0440\u0435\u0441\u0441\u0430. \u0410 \u0432\u043e\u0442 \u0438\u0437 \u043c\u0438\u043d\u0443\u0441\u043e\u0432 - \u043d\u0435\u0442 \u0442\u043e\u043d\u043a\u043e\u0439 \u043d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438 \u0432\u0435\u0441\/\u043f\u043e\u0434\u0445\u043e\u0434 \u0434\u043b\u044f \u043a\u0430\u0436\u0434\u043e\u0439 \u0440\u0443\u043a\u0438, \u043d\u0430\u043f\u0440\u0438\u043c\u0435\u0440. \u0418\u043b\u0438 \u043d\u043e\u0433\u0438 =) \u0418 \u0435\u0449\u0435 \u0438\u0442\u043e\u0433 \u044f \u043d\u0435 \u0437\u0430\u0441\u043a\u0440\u0438\u043d\u0438\u043b, \u0430 \u043a\u0430\u043a \u0435\u0433\u043e \u0441\u043d\u043e\u0432\u0430 \u0443\u0432\u0438\u0434\u0438\u0442\u044c \u043f\u043e\u043a\u0430 \u043d\u0435 \u0440\u0430\u0437\u043e\u0431\u0440\u0430\u043b\u0441\u044f. <\/p> <p>1. \u0412\u043e\u043e\u0431\u0449\u0435 \u043f\u043e\u0434\u0442\u044f\u0433\u0438\u0432\u0430\u043d\u0438\u044f \u043f\u0440\u043e\u0441\u0435\u0434\u0430\u044e\u0442. \u0422\u043e \u0435\u0441\u0442\u044c \u043e\u0442\u0441\u0442\u0430\u044e\u0442 \u043e\u0442 \u0433\u0440\u0430\u0444\u0438\u043a\u0430. \u0415\u0441\u043b\u0438 \u0443\u0447\u0435\u0441\u0442\u044c \u0447\u0442\u043e \u043e\u0441\u0442\u0430\u043b\u043e\u0441\u044c 3 \u043f\u044f\u0442\u043d\u0438\u0446\u044b, \u0438 \u0437\u0430 3 \u0437\u0430\u043d\u044f\u0442\u0438\u044f \u043d\u0430\u0434\u043e \u043d\u0430\u0440\u0430\u0441\u0442\u0438\u0442\u044c \u043a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u043d\u0430 +2\/+4\/+4\/+5 \u0441\u043e\u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0435\u043d\u043d\u043e, \u0442\u043e \u043f\u0440\u0438\u0434\u0435\u0442\u0441\u044f \u0432\u043a\u043b\u044e\u0447\u0430\u0442\u044c \u043f\u0435\u0440\u0435\u043a\u043b\u0430\u0434\u0438\u043d\u0443 \u0432 \u0434\u0440\u0443\u0433\u0438\u0435 \u0434\u043d\u0438 (\u0445\u043e\u0442\u044f \u043d\u0435 \u0444\u0430\u043a\u0442).<\/p> <p>2. \u0424\u0440\u0430\u043d\u0446\u0443\u0437\u0441\u043a\u0438\u0439 \u0436\u0438\u043c - \u043d\u0430\u0434\u043e \u0443\u0432\u0435\u043b\u0438\u0447\u0438\u0432\u0430\u0442\u044c \u0432\u0435\u0441. \u041f\u043e\u0440\u0430 \u0434\u043e 13.45 (\u043d\u0430 \u0437\u0430\u0447\u0435\u0442). \u0418 \u0432\u044b\u0445\u043e\u0434\u0438\u0442\u044c \u043d\u0430 8\/8\/8 \u043a 311.03.2018. <\/p> <p>3. \u0422\u044f\u0433\u0430 \u0438 \u0442\u0430\u043a \u043d\u0430 \u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c\u0435. \u0414\u0430\u0432\u043d\u043e \u043f\u043e\u0440\u0430 \u0443\u0432\u0435\u043b\u0438\u0447\u0438\u0432\u0430\u0442\u044c \u0432\u0435\u0441. \u043d\u043e \u043f\u043e\u043a\u0430 \u043d\u0435\u0447\u0435\u043c. <\/p> <p>4. \u0412\u044b\u043f\u0440\u044f\u043c\u043b\u0435\u043d\u0438\u0435 \u0438\u0437-\u0437\u0430 \u0433\u043e\u043b\u043e\u0432\u044b. \u041d\u0443 \u0442\u0443\u0442 \u043f\u043e\u0442\u043e\u043b\u043e\u043a \u0435\u0449\u0435 \u043d\u0435 \u0441\u043a\u043e\u0440\u043e. \u0423\u0432\u0435\u043b\u0438\u0447\u0438\u0442\u044c \u0434\u043e 15,95<\/p> <p>5. \u0428\u0440\u0430\u0433\u0438... \u0422\u043e\u0436\u0435 \u043f\u043e\u043a\u0430 \u043d\u0435\u0447\u0435\u043c \u0443\u0432\u0435\u043b\u0438\u0447\u0438\u0432\u0430\u0442\u044c \u0432\u0435\u0441.<\/p>","count_comments":"0","rating":"0","status":"1","style":null,"username":"\u041f\u0430\u0432\u0435\u043b","avatar":"5db2a41dd0e60","last_activity":"2019-01-31 16:05:19","days_from_start":"15","step_name":null,"my_rating":"0","subscription":"0","allow_edit":0,"allow_delete":0,"user":{"id":"302787","username":"\u041f\u0430\u0432\u0435\u043b","avatar":"5db2a41dd0e60"},"images":[{"m":{"url":"\/uploadImages\/001136055_m.jpg","width":306,"height":500},"id":"1136055","bg":"#ffffff","width":721,"height":1177,"url":"\/uploadImages\/001136055.jpg"},{"m":{"url":"\/uploadImages\/001136056_m.jpg","width":306,"height":500},"id":"1136056","bg":"#ffffff","width":721,"height":1175,"url":"\/uploadImages\/001136056.jpg"}],"comments":[],"likes":[]},{"id":"2856047","obj_id":"307109","obj_type":"0","type":"post","parent_post_id":"0","user_id":"302787","step_id":"0","date":"2018-03-09 04:41:03","msg":"<p>\u041f\u0435\u0440\u0435\u043d\u0435\u0441\u0435\u043d\u0430 \u043d\u0430 10.03.2018<\/p>","count_comments":"0","rating":"0","status":"1","style":null,"username":"\u041f\u0430\u0432\u0435\u043b","avatar":"5db2a41dd0e60","last_activity":"2019-01-31 16:05:19","days_from_start":"13","step_name":null,"my_rating":"0","subscription":"0","allow_edit":0,"allow_delete":0,"user":{"id":"302787","username":"\u041f\u0430\u0432\u0435\u043b","avatar":"5db2a41dd0e60"},"images":[],"comments":[],"likes":[]},{"id":"2844924","obj_id":"307109","obj_type":"0","type":"post","parent_post_id":"0","user_id":"302787","step_id":"0","date":"2018-03-02 18:26:47","msg":"<p>1. \u041f\u043e\u0434\u0442\u044f\u0433\u0438\u0432\u0430\u043d\u0438\u044f. \u041c\u0435\u043d\u044c\u0448\u0435 \u0432\u0435\u0441 - \u0431\u043e\u043b\u044c\u0448\u0435 \u043f\u043e\u0432\u0442\u043e\u0440\u0435\u043d\u0438\u0439 =) \u043f\u0440\u043e\u0433\u0440\u0435\u0441\u0441 \u0445\u043e\u0442\u044c \u0438 \u043c\u0438\u0437\u0435\u0440\u043d\u044b\u0439 \u0440\u0430\u0434\u0443\u0435\u0442.<\/p> <p>2. \u0424\u0440\u0430\u043d\u0446\u0443\u0437\u0441\u043a\u0438 \u0436\u0438\u043c. \u0412\u0441\u0435 \u043a\u0430\u043a \u043e\u0431\u044b\u0447\u043d\u043e. \u041b\u0435\u0432\u0430\u044f \u043e\u0442\u0441\u0442\u0430\u0435\u0442 \u043f\u043e \u043f\u043e\u0432\u0442\u043e\u0440\u0435\u043d\u0438\u044f\u043c.<\/p> <p>3. \u0422\u044f\u0433\u0430 \u043a \u043f\u043e\u044f\u0441\u0443 \u0432 \u043d\u0430\u043a\u043b\u043e\u043d\u0435. \u0412\u043e\u0442 \u0442\u0443\u0442 \u0441\u0430\u043c\u044b\u0439 \u043e\u0433\u043e\u043d\u044c. \u041d\u041e! \u0412\u0435\u0441 \u043c\u0430\u043a\u0441\u0438\u043c\u0430\u043b\u0435\u043d, \u0430 \u043f\u043e\u0432\u0442\u043e\u0440\u0435\u043d\u0438\u0439 \u0443\u0436\u0435 \u0441\u0442\u043e\u043b\u044c\u043a\u043e \u0447\u0442\u043e \u043f\u043e\u0440\u0430 \u043f\u043e \u0438\u0434\u0435\u0435 \u0443\u0432\u0435\u043b\u0438\u0447\u0438\u0432\u0430\u0442\u044c \u0432\u0435\u0441. \u041f\u043e \u0440\u0430\u0441\u0447\u0435\u0442\u0443 1RM: 12,2\u043a\u0433\/13 \u043f\u043e\u0432\u0442\u043e\u0440\u0435\u043d\u0438\u0439 = 20\u043a\u0433\/8\u043f\u043e\u0432\u0442\u043e\u0440\u0435\u043d\u0438\u0439. \u0422\u043e \u0435\u0441\u0442\u044c \u0441\u043c\u0435\u043b\u043e \u043c\u043e\u0436\u043d\u043e \u043d\u0430\u043a\u0438\u0434\u044b\u0432\u0430\u0442\u044c 2,5\u043a\u0433 \u043a \u0440\u0430\u0431\u043e\u0447\u0435\u043c\u0443 \u0432\u0435\u0441\u0443.<\/p> <p>4. \u0422\u044f\u0433\u0430 \u0438\u0437-\u0437\u0430 \u0433\u043e\u043b\u043e\u0432\u044b. \u0440\u0430\u043d\u044c\u0448\u0435 \u0434\u0435\u043b\u0430\u043b \u043e\u0434\u043d\u043e\u0439 \u0440\u0443\u043a\u043e\u0439. \u0422\u0435\u043f\u0435\u0440\u044c \u0434\u0435\u043b\u0430\u044e \u043e\u0431\u0435\u0438\u043c\u0438 \u0440\u0443\u043a\u0430\u043c\u0438 \u043e\u0434\u043d\u043e\u0432\u0440\u0435\u043c\u0435\u043d\u043d\u043e \u0441 \u043e\u0434\u043d\u043e\u0439 \u0433\u0430\u043d\u0442\u0435\u043b\u044c\u044e. \u041f\u043e\u044d\u0442\u043e\u043c\u0443 \u0434\u0430\u043d\u043d\u0430\u044f \u0442\u0440\u0435\u043d\u0438\u0440\u043e\u0432\u043a\u0430 \u0431\u0443\u0434\u0435\u0442 \u0442\u0435\u043f\u0435\u0440\u044c \u0441\u0442\u0430\u0440\u0442\u043e\u0432\u043e\u0439 \u0434\u043b\u044f \u0443\u0432\u0435\u043b\u0438\u0447\u0435\u043d\u0438\u044f \u043f\u043e\u043a\u0430\u0437\u0430\u0442\u0435\u043b\u0435\u0439 \u0432 2 \u0440\u0430\u0437\u0430.<\/p> <p>5. \u0428\u0440\u0430\u0433\u0438. \u0428\u0440\u0430\u0433\u0438 \u0443\u043f\u0435\u0440\u043b\u0438\u0441\u044c \u0432 \u043c\u0430\u043a\u0441\u0438\u043c\u0430\u043b\u044c\u043d\u044b \u0432\u0435\u0441. \u041d\u043e \u0434\u0435\u043b\u0430\u044f \u0447\u0435\u0442\u043a\u043e \u043f\u043e \u0442\u0435\u0445\u043d\u0438\u043a\u0435 \u043f\u043e\u0432\u0442\u043e\u0440\u0435\u043d\u0438\u0439 \u043f\u043e\u043b\u0443\u0447\u0430\u0435\u0442\u0441\u044f \u0432 \u043e\u043a\u043d\u0435 8-12, \u043f\u0440\u044f\u043c\u043e \u043a\u0430\u043a \u0438 \u043d\u0430\u0434\u043e. <\/p>","count_comments":"0","rating":"0","status":"1","style":null,"username":"\u041f\u0430\u0432\u0435\u043b","avatar":"5db2a41dd0e60","last_activity":"2019-01-31 16:05:19","days_from_start":"6","step_name":null,"my_rating":"0","subscription":"0","allow_edit":0,"allow_delete":0,"user":{"id":"302787","username":"\u041f\u0430\u0432\u0435\u043b","avatar":"5db2a41dd0e60"},"images":[{"m":{"url":"\/uploadImages\/001131279_m.jpg","width":281,"height":500},"id":"1131279","bg":"#ffffff","width":675,"height":1200,"url":"\/uploadImages\/001131279.jpg"},{"m":{"url":"\/uploadImages\/001131280_m.jpg","width":281,"height":500},"id":"1131280","bg":"#ffffff","width":675,"height":1200,"url":"\/uploadImages\/001131280.jpg"},{"m":{"url":"\/uploadImages\/001131281_m.jpg","width":281,"height":500},"id":"1131281","bg":"#ffffff","width":675,"height":1200,"url":"\/uploadImages\/001131281.jpg"}],"comments":[],"likes":[]}];window.ssr_json_67626ec3c8c73={"id":"3456683","obj_id":"307109","obj_type":"0","type":"post","parent_post_id":"0","user_id":"302787","step_id":"0","date":"2019-02-13 18:10:07","msg":"<p>\u0426\u0435\u043b\u044c \u0437\u0430\u0432\u0435\u0440\u0448\u0430\u044e \u0438\u0431\u043e \u043e\u043d\u0430 - \u044d\u0442\u043e \u0447\u0430\u0441\u0442\u044c \u043f\u0440\u043e\u0446\u0435\u0441\u0441\u0430. \u0422\u044f\u043f\u043d\u0438\u0446\u0430 \u0443\u0436\u0435 \u0432\u043e\u0448\u043b\u0430 \u0432 \u0440\u0438\u0442\u0443\u0430\u043b, \u0442\u0430\u043a \u0447\u0442\u043e \u0431\u0435\u0441\u0441\u043c\u044b\u0441\u043b\u0435\u043d\u043d\u043e \u043f\u043b\u043e\u0434\u0438\u0442\u044c \u0446\u0435\u043b\u0438.<\/p>","count_comments":"0","rating":"0","status":"1","style":null,"username":"\u041f\u0430\u0432\u0435\u043b","avatar":"5db2a41dd0e60","days_from_start":"354","my_rating":"0","subscription":"0","user":{"id":"302787","username":"\u041f\u0430\u0432\u0435\u043b","avatar":"5db2a41dd0e60"},"images":[],"comments":[],"allow_edit":0,"allow_delete":0};window.ssr_json_67626ec3c8cc0={"2659793":"\u041f\u043e\u0434\u0442\u044f\u0433\u0438\u0432\u0430\u043d\u0438\u044f \u043d\u0430 \u043f\u0435\u0440\u0435\u043a\u043b\u0430\u0434\u0438\u043d\u0435","2659960":"\u0420\u0430\u0437\u0433\u0438\u0431\u0430\u043d\u0438\u0435 \u043e\u0431\u0435\u0438\u0445 \u0440\u0443\u043a \u0441 \u0433\u0430\u043d\u0442\u0435\u043b\u044c\u044e \u0438\u0437-\u0437\u0430 \u0433\u043e\u043b\u043e\u0432\u044b","2659904":"\u0422\u044f\u0433\u0438 \u0433\u0430\u043d\u0442\u0435\u043b\u0438 \u043e\u0434\u043d\u043e\u0439 \u0440\u0443\u043a\u043e\u0439","2659846":"\u0420\u0430\u0437\u0433\u0438\u0431\u0430\u043d\u0438\u0435 \u0440\u0443\u043a \u0441 \u0433\u0430\u043d\u0442\u0435\u043b\u044f\u043c\u0438 \u043b\u0435\u0436\u0430 (\u0441\u0442\u043e\u044f)"};window.ssr_json_67626ec3c8ced=["2659793","2659960","2659904","2659846"];window.ssr_json_67626ec3c8d08="0";        </script>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    </head>
+
+    <body class="page__body " onload="onLoad()"><script type="text/javascript" src="/js/sprite.svg.js"></script>
+
+            
+            <a class="btn btn_theme_blue up-btn" href="javascript:void(0)"><i class="s s--button-arrow"></i></a>
+    
+            <div class="page__body-wrapper">
+        
+    
+<header class="mobile-menu">
+    <a class="mobile-menu__trigger"><svg width='22' style='' height='16' class='icon icon--menu'><use xlink:href='#ico-menu'></use></svg></a>
+
+            <div class="mobile-menu__login">
+            <a class="link--user-form" data-form="login">Вход</a>
+            <a class="link--user-form" data-form="registration">Регистрация</a>
+        </div>
+    
+    <div class="mobile-menu__dropdown">
+                <div class="mobile-menu__section">
+            <ul class="user-menu__list">
+                                                                                    <li class="user-menu__item">
+                        <a href="/goal/" class="user-menu__link ">
+                            Цели                        </a>
+                    </li>
+                                                                                                    <li class="user-menu__item">
+                        <a href="/coaching/" class="user-menu__link ">
+                            Наставничество                        </a>
+                    </li>
+                                                                    <li class="user-menu__item">
+                        <a href="/user/" class="user-menu__link ">
+                            Люди                        </a>
+                    </li>
+                                                                    <li class="user-menu__item">
+                        <a href="/goal/create/" class="user-menu__link ">
+                            Создать цель                        </a>
+                    </li>
+                                                                    <li class="user-menu__item">
+                        <a href="/user/logout/" class="user-menu__link ">
+                            Выйти                        </a>
+                    </li>
+                                            </ul>
+        </div>
+
+                    <div class="mobile-menu__section">
+                <ul class="user-menu__list user-menu__list--inline">
+                                            <li class="user-menu__item">
+                            <a href="/user/setLanguage/?language=ru" class="user-menu__link st-active">
+                                ru                            </a>
+                        </li>
+                                            <li class="user-menu__item">
+                            <a href="/user/setLanguage/?language=en" class="user-menu__link ">
+                                en                            </a>
+                        </li>
+                                            <li class="user-menu__item">
+                            <a href="/user/setLanguage/?language=uk" class="user-menu__link ">
+                                uk                            </a>
+                        </li>
+                                            <li class="user-menu__item">
+                            <a href="/user/setLanguage/?language=es" class="user-menu__link ">
+                                es                            </a>
+                        </li>
+                                    </ul>
+            </div>
+        
+        <div class="mobile-menu__section">
+            <ul class="service-links">
+    <a class="link" href="/site/faq/">FAQ</a>    <a class="link" href="/site/agreement/">Правила</a>    <a class="link" href="/user/pro/">PRO</a>    <a class="link" href="/site/special/">Спецпроект</a>    <br />
+    <a class="link" href="javascript:$(&#039;.popup.contact&#039;).openPopup();">Контакты</a>    <a class="link" href="/site/about/">О компании</a>    <a class="link" href="/affiliate">Партнерка</a></ul>
+        </div>
+    </div>
+</header>
+
+<header class="header is-new">
+    <div class="container">
+        <div class="header__w">
+            <menu class="header-menu">
+                <ul class="header-menu__items">
+                                                                    <li class="header-menu__item js-guide__goal js-guide__goal--news ">
+                            <a href="/" class="header-menu__link">
+                                Главная                            </a>
+                        </li>
+                                                                    <li class="header-menu__item js-guide__goal js-guide__goal--goals ">
+                            <a href="/goal/" class="header-menu__link">
+                                Цели                            </a>
+                        </li>
+                                                                                            <li class="header-menu__item js-guide__goal js-guide__goal--coaching ">
+                            <a href="/coaching/" class="header-menu__link">
+                                Наставничество                            </a>
+                        </li>
+                                                                    <li class="header-menu__item js-guide__goal js-guide__goal--peoples ">
+                            <a href="/user/" class="header-menu__link">
+                                Люди                            </a>
+                        </li>
+                                                                                    </ul>
+            </menu>
+
+            <a href="/" class="js-guide__goal header__logo s__hover-container">
+                <i class="s s--short-logo-blue"></i>
+                <i class="s s--short-logo-wave s--hover"></i>
+            </a>
+
+            				<div class="header__right header__right--justify" style="margin-top: -15px;">
+					<div style="padding-top: 20px;">
+                        
+
+<language-changer    value='ru'
+>
+</language-changer>
+					</div>
+
+	                <div class="top-menu">
+	                    <ul class="authorization-menu">
+	                        <li class="authorization-menu__item">
+	                            <a class="link link--user-form" data-form="registration" href="/user/signup/">Регистрация</a>	                        </li>
+
+	                        <li class="authorization-menu__item">
+	                            <a class="link link--user-form" data-form="login" id="login_link" href="/user/login/">Войти</a>	                        </li>
+	                    </ul>
+	                </div>
+				</div>
+                    </div>
+    </div>
+</header>
+    
+<div class="grey-frame" style="">
+	<div class="container progress__wrapper">
+        			<div class="progressbar  ">
+
+                <div class="progressbar-scale progressbar-scale--simple">
+	<div class="progressbar-scale__line">
+        
+			<div class="progressbar-scale__item item-2659793                    progressbar-scale__item--complete"
+				 style="width: 25%;">
+								<i class="progressbar-scale__pin"></i>
+				<i class="progressbar-scale__number " data-id="2659793">1</i>
+
+				<div class="progressbar-scale-tooltip">
+					<p class="progressbar-scale-tooltip__title">Этап 1</p>
+
+					<p class="progressbar-scale-tooltip__step-name">Подтягивания на перекладине</p>
+
+                                    </div>
+                			</div>
+
+            
+			<div class="progressbar-scale__item item-2659960                    progressbar-scale__item--complete"
+				 style="width: 25%;">
+								<i class="progressbar-scale__pin"></i>
+				<i class="progressbar-scale__number " data-id="2659960">2</i>
+
+				<div class="progressbar-scale-tooltip">
+					<p class="progressbar-scale-tooltip__title">Этап 2</p>
+
+					<p class="progressbar-scale-tooltip__step-name">Разгибание обеих рук с гантелью из-за головы</p>
+
+                                    </div>
+                			</div>
+
+            
+			<div class="progressbar-scale__item item-2659904                    progressbar-scale__item--complete"
+				 style="width: 25%;">
+								<i class="progressbar-scale__pin"></i>
+				<i class="progressbar-scale__number " data-id="2659904">3</i>
+
+				<div class="progressbar-scale-tooltip">
+					<p class="progressbar-scale-tooltip__title">Этап 3</p>
+
+					<p class="progressbar-scale-tooltip__step-name">Тяги гантели одной рукой</p>
+
+                                    </div>
+                			</div>
+
+            
+			<div class="progressbar-scale__item item-2659846                    progressbar-scale__item--complete"
+				 style="width: 25%;">
+								<i class="progressbar-scale__pin"></i>
+				<i class="progressbar-scale__number " data-id="2659846">4</i>
+
+				<div class="progressbar-scale-tooltip">
+					<p class="progressbar-scale-tooltip__title">Этап 4</p>
+
+					<p class="progressbar-scale-tooltip__step-name">Разгибание рук с гантелями лежа (стоя)</p>
+
+                                    </div>
+                			</div>
+
+            	</div>
+</div>
+
+	<div class="progressbar-scale progressbar-scale--full">
+						<div class="progressbar-scale__line">
+									<div class="progressbar-scale__item item-2659793							progressbar-scale__item--complete"
+					 style="width: 25%;
+						 "
+						>
+					<i class="progressbar-scale__pin"></i>
+                    <i class="progressbar-scale__number " data-id="2659793">1</i>
+	
+					<div class="progressbar-scale-tooltip">
+						<h3 class="progressbar-scale-tooltip__title">Этап 1</h3>
+	
+						<p class="progressbar-scale-tooltip__step-name">Подтягивания на перекладине</p>
+	
+											</div>
+				</div>
+												<div class="progressbar-scale__item item-2659960							progressbar-scale__item--complete"
+					 style="width: 25%;
+						 "
+						>
+					<i class="progressbar-scale__pin"></i>
+                    <i class="progressbar-scale__number " data-id="2659960">2</i>
+	
+					<div class="progressbar-scale-tooltip">
+						<h3 class="progressbar-scale-tooltip__title">Этап 2</h3>
+	
+						<p class="progressbar-scale-tooltip__step-name">Разгибание обеих рук с гантелью из-за головы</p>
+	
+											</div>
+				</div>
+												<div class="progressbar-scale__item item-2659904							progressbar-scale__item--complete"
+					 style="width: 25%;
+						 "
+						>
+					<i class="progressbar-scale__pin"></i>
+                    <i class="progressbar-scale__number " data-id="2659904">3</i>
+	
+					<div class="progressbar-scale-tooltip">
+						<h3 class="progressbar-scale-tooltip__title">Этап 3</h3>
+	
+						<p class="progressbar-scale-tooltip__step-name">Тяги гантели одной рукой</p>
+	
+											</div>
+				</div>
+												<div class="progressbar-scale__item item-2659846							progressbar-scale__item--complete"
+					 style="width: 25%;
+						 "
+						>
+					<i class="progressbar-scale__pin"></i>
+                    <i class="progressbar-scale__number " data-id="2659846">4</i>
+	
+					<div class="progressbar-scale-tooltip">
+						<h3 class="progressbar-scale-tooltip__title">Этап 4</h3>
+	
+						<p class="progressbar-scale-tooltip__step-name">Разгибание рук с гантелями лежа (стоя)</p>
+	
+											</div>
+				</div>
+				</div>				
+                    <span class="progressbar-scale__start">
+						<span
+                            class="progressbar-scale__range-label">25 февраля 2018</span>
+						<span class="progressbar-scale__span"></span>
+					</span>
+					<span class="progressbar-scale__end">
+						<span
+                            class="progressbar-scale__range-label"></span>
+						<span class="progressbar-scale__span"></span>
+					</span>
+	</div>
+	
+	</div>
+
+									<div class="goal-done-message">
+						<svg width='18' style='' height='18' class='icon icon--gr-done'><use xlink:href='#ico-gr-done'></use></svg>						<span>
+							Цель завершена 13 февраля 2019						</span>
+					</div>
+				
+									<div class="progress-panel__wrap">
+						<a class="show-progress" href="javascript:void(0)">
+							<span class="show-progress__label show-progress__label--off">Подробно</span>
+							<span class="show-progress__label show-progress__label--on">Кратко</span>
+						</a>
+					</div>
+				
+			</div>
+        	</div>
+
+
+
+<div class="goal-page-content content content_label_yes" >
+    
+    <div class="container">
+        
+
+
+
+        <div class="widget content-cols ">
+            <div class="content-cols__content">
+                <div class="user-widget">
+	<p class="user-widget__subtitle">Автор цели</p>
+    <a class="user-photo-link" href="/user/302787/">
+        <img class="user-photo" src="/avatars/000302787_s_5db2a41dd0e60.jpg" />
+    </a>
+
+	<div class="user-widget__wrap">
+
+		<h3 class="user-widget__name">
+            <a href="/user/302787/" class="dark-link">
+                Павел            </a>
+		</h3>
+
+		<!--<p class="user-widget__prof">менеджер по продажам</p>-->
+
+		<p class="user-widget__location">Россия, Санкт-Петербург</p>
+
+        		<p class="user-widget__age">42 года</p>
+        
+        <div class="user-widget__actions">
+                                        <p>
+                        <a class="user-widget__link" href="/message/302787/">
+                            Отправить сообщение                        </a>
+                    </p>
+
+                                            <p>
+                            <a class="user-widget__link add-friend" href="#" id="yt0">Добавить в друзья<span class="ajax-loader small_ajax_loader"></span></a>                        </p>
+                                                    </div>
+	</div>
+</div>
+<div class="clear"></div>
+<div class="goal goal--successful formatted-content">
+
+	<span class="goal__subtitle">Спорт и Фитнес</span>
+
+	<h1 class="goal__title">
+        <span class="goal__title-inner">
+            <span>Тренировка &quot;пятница&quot; спина и трицепс</span><svg width='22' style='' height='20' class='icon icon--success'><use xlink:href='#ico-success'></use></svg>        </span>
+	</h1>
+
+	
+    <div id="goal_descr" class="goal__descr ">
+        <div class="goal__descr">
+            <p>Пятничная тренировка</p>
+
+<p>Сплит на <strong>спина</strong> и <strong>трицепс</strong></p>
+
+<p>1й подход: малый вес 15 повторений (для разогрева)</p>
+
+<p>перерыв 1 мин.</p>
+
+<p>2й подход: рабочий вес 7-8 повторений</p>
+
+<p>перерыв 2 мин.</p>
+
+<p>3й подход: рабочий вес 7-8 повторений</p>
+
+<p>перерыв 2 мин.</p>
+
+<p>4й подход: рабочий вес максимум повторений (максимум для того что бы проверить стоит ли увеличить рабочий вес)</p>
+
+<p>перерыв между упражнениями 1 мин.</p>
+
+<p>1. Подтягивания на перекладине хватом снизу (способ для жиробасиков типа меня, на будущее - нормальный хват) Те же 4 подхода на максимум повторений.</p>
+
+<p>2. Разгибание рук с гантелями лежа (стоя)</p>
+
+<p>3. Тяги гантели одной рукой к туловищу в упоре на скамейку</p>
+
+<p>4. Разгибание одной руки с гантелью из-за головы</p>        </div>
+
+        
+                    <h3>
+                <svg width='16' style=';fill: #1BB8D7; color: #1BB8D7;' height='17' class='icon icon--flag'><use xlink:href='#ico-flag'></use></svg>                &nbsp;Критерий завершения            </h3>
+            <p>
+                <p>Увеличение физических показателей в 2 раза</p>            </p>
+        
+        
+                    <h3>
+                <svg width='14' style=';fill: #1BB8D7; color: #1BB8D7;' height='16' class='icon icon--drop-stroke'><use xlink:href='#ico-drop-stroke'></use></svg>                &nbsp;Экологичность цели            </h3>
+            <p>
+                <p>Эта цель - часть цели "Улучшить физическое состояние к 2020" <a href="https://smartprogress.do/goal/305146/" target="_blank">https://smartprogress.do/goal/305146/</a></p>            </p>
+            </div>
+    </div>
+    <div class="gallery">
+        <div
+            class="js-gallery-rama"
+            data-width="100%"
+                        data-ratio='1.886'            data-nav="false"
+            data-arrows="false"
+            data-click="false"
+            data-shadows="false"
+            data-loop="true"
+            data-transition="dissolve"
+            data-fit="cover"
+            style="background-color: #000000"
+        >
+                            <a href="/uploadImages/001127940_l_crop.jpg"
+                   data-orig="/uploadImages/001127940.jpg"
+                   data-width="1200"
+                   data-height="675"></a>
+                    </div>
+
+                    <div class="fotorama__ph" style="padding-bottom: 53.022269353128%; background-color: #000000"></div>
+                    </div>
+    <div class="plan">
+        <ol class="plan__list ">
+                                            <li class="plan__item  plan__step-completed">
+                    
+                    <h2 class="plan__title">
+                        Подтягивания на перекладине                    </h2>
+
+                    <div class="formatted-content">
+
+                        <div class="plan__description">
+                            <p>Как делать правильно описано <a href="https://smartprogress.do/site/redirect/?url=http%3A%2F%2Fwww.iron-health.ru%2Ftehnika%2Fpodtyagivaniya-uzkim-xvatom-osobennosti-texnika-video.html" target="_blank">тут</a></p> <p>13.02.2018 я делал НОЛЬ</p> <p><strong>К 31.12.2018: 20/20/20/20</strong></p>                        </div>
+
+                        
+                        
+                    </div>
+
+                    
+<div class="mosaic mosaic--single open-full-gallery open-full-gallery-2659793-step"><!--
+--><!--
+--><!--
+--><!--
+--><div class="mosaic__row"><!--
+--><!--
+--><!--
+--><div class="mosaic__item" data-ar="1.068" style="width: 100%; padding-bottom: 93.632958801498%; background-color: #ffffff;">
+        <img
+            class="mosaic__img"
+            data-src="/uploadImages/001127963_m.jpg"
+            data-index="0"
+            data-bg="#ffffff"
+            data-orig="/uploadImages/001127963.jpg"
+            data-width="267"
+            data-height="250"
+            style="opacity: 0; max-width: 320.4px; max-height: 300px;"
+            />
+    </div><!--
+--><!--
+--></div><!--
+--><!--
+--></div>
+
+                                    </li>
+                                            <li class="plan__item  plan__step-completed">
+                    
+                    <h2 class="plan__title">
+                        Разгибание обеих рук с гантелью из-за головы                    </h2>
+
+                    <div class="formatted-content">
+
+                        <div class="plan__description">
+                            <p>Как делать правильно описано <a href="https://smartprogress.do/site/redirect/?url=http%3A%2F%2Fwww.iron-health.ru%2Ftehnika%2Fkak-pravilno-vypolnyat-razgibaniya-ruk-iz-za-golovy.html" target="_blank">тут</a></p>                        </div>
+
+                        
+                        
+                    </div>
+
+                    
+<div class="mosaic mosaic--single open-full-gallery open-full-gallery-2659960-step"><!--
+--><!--
+--><!--
+--><!--
+--><div class="mosaic__row"><!--
+--><!--
+--><!--
+--><div class="mosaic__item" data-ar="1.2278177458034" style="width: 100%; padding-bottom: 81.4453125%; background-color: #fdfdfd;">
+        <img
+            class="mosaic__img"
+            data-src="/uploadImages/001127981_m.jpg"
+            data-index="0"
+            data-bg="#fdfdfd"
+            data-orig="/uploadImages/001127981.jpg"
+            data-width="1024"
+            data-height="834"
+            style="opacity: 0; max-width: 368.34532374101px; max-height: 300px;"
+            />
+    </div><!--
+--><!--
+--></div><!--
+--><!--
+--></div>
+
+                                    </li>
+                                            <li class="plan__item  plan__step-completed">
+                    
+                    <h2 class="plan__title">
+                        Тяги гантели одной рукой                    </h2>
+
+                    <div class="formatted-content">
+
+                        <div class="plan__description">
+                            <p>Как делать правильно описано <a href="https://smartprogress.do/site/redirect/?url=http%3A%2F%2Fwww.iron-health.ru%2Ftehnika%2Ftyaga-ganteli-odnoj-rukoj-delaj-pravilno.html" target="_blank">тут</a></p>                        </div>
+
+                        
+                        
+                    </div>
+
+                    
+<div class="mosaic mosaic--single open-full-gallery open-full-gallery-2659904-step"><!--
+--><!--
+--><!--
+--><!--
+--><div class="mosaic__row"><!--
+--><!--
+--><!--
+--><div class="mosaic__item" data-ar="0.81503461918892" style="width: 100%; padding-bottom: 122.69417475728%; background-color: #ffffff;">
+        <img
+            class="mosaic__img"
+            data-src="/uploadImages/001127977_m.jpg"
+            data-index="0"
+            data-bg="#ffffff"
+            data-orig="/uploadImages/001127977.jpg"
+            data-width="824"
+            data-height="1011"
+            style="opacity: 0; max-width: 244.51038575668px; max-height: 300px;"
+            />
+    </div><!--
+--><!--
+--></div><!--
+--><!--
+--></div>
+
+                                    </li>
+                                            <li class="plan__item  plan__step-completed">
+                    
+                    <h2 class="plan__title">
+                        Разгибание рук с гантелями лежа (стоя)                    </h2>
+
+                    <div class="formatted-content">
+
+                        <div class="plan__description">
+                            <p>Как делать правильно описано <a href="https://smartprogress.do/site/redirect/?url=http%3A%2F%2Fwww.iron-health.ru%2Ftehnika%2Ffrancuzskij-zhim-lezha-s-gantelyami-osobennosti-texnika-vypolneniya-video.html" target="_blank">тут</a></p>                        </div>
+
+                        
+                        
+                    </div>
+
+                    
+<div class="mosaic mosaic--single open-full-gallery open-full-gallery-2659846-step"><!--
+--><!--
+--><!--
+--><!--
+--><div class="mosaic__row"><!--
+--><!--
+--><!--
+--><div class="mosaic__item" data-ar="1.3047775947282" style="width: 100%; padding-bottom: 76.641414141414%; background-color: #ffffff;">
+        <img
+            class="mosaic__img"
+            data-src="/uploadImages/001127961_m.jpg"
+            data-index="0"
+            data-bg="#ffffff"
+            data-orig="/uploadImages/001127961.jpg"
+            data-width="792"
+            data-height="607"
+            style="opacity: 0; max-width: 391.43327841845px; max-height: 300px;"
+            />
+    </div><!--
+--><!--
+--></div><!--
+--><!--
+--></div>
+
+                                    </li>
+                    </ol>
+    </div>
+    
+<ul class="metrics hide-on-mobile">
+	<li class="metrics__item"><svg width='16' style=';fill: #A5A5A5; color: #A5A5A5;' height='9' class='icon icon--eye'><use xlink:href='#ico-eye'></use></svg>943</li>
+	<li class="metrics__item"><i class="s s--date"></i>25 февраля 2018, 16:05</li>
+</ul>
+<div class="clear" style="margin-bottom: 10px;"></div>
+
+<div class="article__foot">
+    <div class="goal-actions">
+        <div class="goal-actions__btns">
+            <div style="margin-right: -10px">
+                            </div>
+            
+
+<like-button    count='{2}'
+    voted='{false}'
+    own='{false}'
+    simple='{false}'
+    short='{false}'
+    position='left'
+    fast_signup_position='left'
+    type='goal'
+    id='307109'
+    share='{1}'
+    share_options='{window.ssr_json_67626ec3c788a}'
+    show_share='{false}'
+    url='/rating/add/'
+    likes='{window.ssr_json_67626ec3c7949}'
+    user='{window.ssr_json_67626ec3c796b}'
+>
+</like-button>
+        </div>
+
+        <div class="goal-actions__btns hide-on-mobile">
+    		
+            
+            <button class="btn btn_theme_gray btn_tiny hide-on-mobile" style="margin-left: 10px;" onClick="$('.popup--widget').openPopup();">
+                <svg width='13' style=';fill: #2AB8D5; color: #2AB8D5;' height='13' class='icon icon--ring'><use xlink:href='#ico-ring'></use></svg>                Виджет            </button>
+                    </div>
+
+            </div>
+
+
+            <div class="edit-panel--subscribe">
+            <div class="edit-panel--button tooltip-block">
+                
+
+<subscribe-button    goal_id='{307109}'
+>
+</subscribe-button>
+                            </div>
+            <h3>Не пропустите новые записи!</h3>
+            <p>Подпишитесь на цель и следите за ее достижением</p>
+        </div>
+    </div>
+            </div>
+            <div class="content-cols__sidebar" style="padding-top: 140px;">
+                <div class="notice notice--team" style="display: none;">
+    
+
+<team-block    block_title='Командная цель'
+    users='{window.ssr_json_67626ec3c80f7}'
+    invited_users='{window.ssr_json_67626ec3c8133}'
+    is_invited='{false}'
+    can_leave='{false}'
+    join_url='/goal/agreetobeateam/307109/'
+    leave_url='/goal/leaveateam/307109/'
+>
+    <div style="padding: 50px 0; text-align: center">
+        <img src="/images/preloader.gif" />
+    </div>
+    </team-block>
+</div>
+<a href="/bodybuilding" class="notice__link-w hide-on-mobile">
+    <div class="notice notice--group">
+        <header class="notice__head">
+            <p class="notice__subtitle">Цель состоит в группе</p>
+            <h3 class="notice__title">Бодибилдинг</h3>
+        </header>
+        <div class="goals-group-badge">
+                                            <img src="/uploadImages/000125471.jpg" class="goals-group-badge__img" />
+                        <ul class="goals-group-badge__metrics">
+                <li class="goals-group-badge__metric">
+                    <svg width='22' style='' height='22' class='icon icon--smile'><use xlink:href='#ico-smile'></use></svg>                    <div class="goals-group-badge__metric-w">
+                        <p class="goals-group-badge__count">1071</p>
+                        участник                    </div>
+                </li>
+
+                <li class="goals-group-badge__metric">
+                    <svg width='21' style='' height='21' class='icon icon--goal'><use xlink:href='#ico-goal'></use></svg>                    <div class="goals-group-badge__metric-w">
+                        <p class="goals-group-badge__count">1203</p>
+                        цели                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</a>
+<div class="clear"></div>
+
+                <div class="clear"></div>
+
+                
+                                    <div class="goal-right-sidebar-hidden hide-on-mobile">
+                                            </div>
+                            </div>
+        </div>
+
+		<div id="diary"></div>
+
+
+<goal-diary    initial_entries='{window.ssr_json_67626ec3c8bbe}'
+    conclusion='{window.ssr_json_67626ec3c8c73}'
+    steps='{window.ssr_json_67626ec3c8cc0}'
+    steps_id='{window.ssr_json_67626ec3c8ced}'
+    goal_id='{307109}'
+    habit='{window.ssr_json_67626ec3c8d08}'
+    can_post='{false}'
+    can_comment='{false}'
+    initial_sorting='new_top'
+    sidebar_html='<div class="clear"></div>
+<div class="goal-promo">
+    <h3>
+        Вы тоже можете<br />
+        опубликовать свою<br />
+        цель здесь
+    </h3>
+    <p>
+        Мы поможем вам ее достичь!
+    </p>
+
+    <div class="goal-promo__sect">
+        <i class="s s--head-m-white"></i>
+        <p class="goal-promo__count">309&thinsp;000</p>
+        <p>
+            единомышленников
+        </p>
+    </div>
+
+    <div class="goal-promo__sect">
+        <i class="s s--tool-m-white"></i>
+        <p>
+            <strong>инструменты</strong>
+        </p>
+        <p style="margin-top: -5px;">
+            для увлекательного достижения
+        </p>
+    </div>
+
+    <a href="javascript:void(0)" class="btn btn_theme_glow link--user-form" data-return-url="/goal/create/" data-form="registration">Присоединиться</a>
+</div>
+<div class="clear"></div>
+'
+    last_activity='2019-01-31 16:05:19'
+    frozen='{false}'
+>
+</goal-diary>
+    </div>
+</div>
+
+
+
+<!--<div class="widget__columns">
+  <div class="widget__main column" style="padding-top: 30px;">
+    <h3 class="widget__main-title" style="margin-bottom: 15px;">
+      Только для PRO    </h3>
+
+    <div style="font-style: 14px;line-height: 20px;">
+      Вы можете купить <a href="/user/pro/" target="_blank">PRO аккаунт</a>, либо получить его бесплатно, пригласив 3 друзей на SmartProgress    </div>
+
+    <div class="edit-panel">
+        <a href="/invite/" target="_blank" class="btn btn_theme_blue">
+            Пригласить друзей        </a>
+        <a href="/user/pro/" target="_blank" class="btn btn_theme_blue">
+            Купить        </a>
+          <button class="btn btn_theme_gray popup__close">
+              Отмена          </button>
+    </div>
+  </div>
+
+</div>-->
+<script type="text/javascript">
+/*<![CDATA[*/
+(function() {
+    function hideEl(el) {
+        el.classList.add('plan__item--hidden');
+    }
+
+    var root, completed, active;
+    var steps = document.querySelector('.goal__show-full--steps');
+    if(root = document.querySelector('.goal__hidden-for-subscribers')) {
+        completed = Array.prototype.slice.apply(root.querySelectorAll('.plan__step-completed'), [0, -1]);
+        completed.forEach(hideEl);
+
+        active = Array.prototype.slice.apply(root.querySelectorAll('.plan__step-active'), [3]);
+        active.forEach(hideEl);
+
+        if(completed.length + active.length === 0 && steps) {
+            steps.style.display = 'none';
+        }
+    }
+})();
+/*]]>*/
+</script>
+
+        
+
+            </div>
+    
+    <footer class="footer">
+    <div class="container">
+        <div class="footer__bl footer__bl--copy">
+            <p class="footer__copy">
+                <strong>© 2012—2024 SmartProgress.do</strong><br />Сервис достижения целей            </p>
+        </div>
+        <div class="footer__bl footer__bl--soc footer__soc">
+            <a class="link vk-btn" href="https://vk.com/smartprogress" target="_blank" rel="nofollow">В</a>
+            <a class="link fb-btn" href="https://www.facebook.com/SmartProgressRus/" target="_blank" rel="nofollow">f</a>
+            <a class="link tg-btn" href="https://t.me/smartprogress" target="_blank" rel="nofollow"></a>
+            <a class="link inst-btn" href="https://www.instagram.com/smartprogress_rus/" target="_blank" rel="nofollow"></a>
+            <a class="link smarttalks-btn" href="https://smarttalks.me/" target="_blank"></a>
+        </div>
+        <div class="footer__bl footer__links">
+            <a href="/goal/" class="footer__link">Цели</a>
+            <a href="/user/" class="footer__link">Люди</a>
+            <a href="/coaching/" class="footer__link">Наставничество</a>
+        </div>
+        <div class="footer__bl footer__links">
+            <a href="/user/pro/" class="footer__link">PRO</a>
+            <a href="/site/faq/" class="footer__link">FAQ</a>
+            <a href="/site/agreement/" class="footer__link">Соглашение</a>
+        </div>
+        <div  class="footer__links footer__bl">
+            <a href="javascript:$('.popup.contact').openPopup();" class="footer__link">Контакты</a>
+            <a href="/affiliate" class="footer__link">Партнерка</a>
+            <a href="/site/about/" class="footer__link">О компании</a>
+        </div>
+    </div>
+</footer>
+<div class="user-form user-form--registration ">
+    <form class="user-form__inner" id="signup-form" action="/user/signup/" method="post">
+<input type="hidden" value="69589fb482351b234a78296a73c38ac0a3a8d97e" name="YII_CSRF_TOKEN" /><input type="hidden" value="/goal/307109/" name="returnUrl" id="returnUrl" /><input name="User[gender]" id="User_gender" type="hidden" value="hide" /><input name="User[birthday]" id="User_birthday" type="hidden" /><input name="User[avatar]" id="User_avatar" type="hidden" />        <div class="user-form__title">Регистрация</div>
+        <i class="s s--logo_small"></i>
+        <h4 class="user-form__slogan">
+            <span class="user-form__slogan-accent">Регистрация</span>        </h4>
+        <a href="/user/login/" class="link link--user-form user-form__cross-link" data-form="login">
+            Уже зарегистрированы?
+        </a>
+        <div class="user-form__input-wrapper">
+                        <input class="text_input" placeholder="Имя" name="User[username]" id="User_username" type="text" maxlength="20" />            <div class="help-block" id="User_username_em_" style="display:none"></div>        </div>
+        <div class="user-form__input-wrapper">
+                        <input class="text_input" placeholder="Email" name="User[email]" id="User_email" type="text" />            <div class="help-block" id="User_email_em_" style="display:none"></div>        </div>
+        <div class="user-form__input-wrapper" style="margin-bottom: 10px">
+                        <input class="text_input js-password-field" placeholder="Пароль" name="User[password]" id="User_password" type="password" maxlength="128" />            <div class="help-block" id="User_password_em_" style="display:none"></div>            <label class="user-form__password-checkbox">
+              <input class="js-signup-toggle-password radio__input" type="checkbox" value="1" name="" id="" />              <svg width='19' style='' height='8' class='icon icon--eye-closed'><use xlink:href='#ico-eye-closed'></use></svg>              <svg width='20' style='' height='11' class='icon icon--eye-open'><use xlink:href='#ico-eye-open'></use></svg>            </label>
+        </div>
+        <div class="user-form__input-wrapper" style="text-align: right">
+  			<label>
+  				Я принимаю <a href="/site/agreement/" target="_blank" style="color: #2AB8D5; text-decoration: none;">договор-оферту</a>&nbsp;
+  				<label class="radio radio--on-dark radio--checkbox radio--stroke">
+            <input class="js-signup-rules-agreed radio__input" type="checkbox" value="1" name="" id="" />  					<i class="radio__icon"></i>
+  				</label>
+  			</label>
+        </div>
+
+        <div class="user-form__input-wrapper" style="text-align: right">
+  			  <div 
+            class="g-recaptcha" 
+            data-sitekey="6LdiIeUpAAAAAKVWK756aF9Xp-VBkCOyRB6swcJI" 
+            data-callback="onCheckCallback"
+            style="margin-left: -32px"
+          ></div>
+        </div>
+
+        <div class="user-form__submit-wrapper">
+            <button type="submit" class="user-form__submit btn btn_theme_blue js-signup-submit" disabled="disabled" name="yt1">Я готов!</button>                          <button class="user-form__close btn btn_theme_gray" name="yt2" type="button">Отмена</button>                    </div>
+
+        <div class="user-form__socials">
+            Быстрая регистрация через соцсети            <ul class="social-menu">
+    <!--
+    --><!--
+        --><li class="social-menu__item">
+                <a class="social-btn social-btn_facebook s__hover-container"
+                   href="https://smartprogress.do/hybridauth/default/login/?provider=facebook"
+                   id="hybridauth-facebook">
+                        <i class="s s--social_facebook"></i>
+                        <i class="s s--social_facebook_hover s--hover"></i>
+                   </a>
+            </li><!--
+        --><!--
+        --><!--
+    --><!--
+        --><li class="social-menu__item">
+                <a class="social-btn social-btn_twitter s__hover-container"
+                   href="https://smartprogress.do/hybridauth/default/login/?provider=twitter"
+                   id="hybridauth-twitter">
+                        <i class="s s--social_twitter"></i>
+                        <i class="s s--social_twitter_hover s--hover"></i>
+                   </a>
+            </li><!--
+        --><!--
+        --><!--
+    --><!--
+        --><li class="social-menu__item">
+                <a class="social-btn social-btn_google s__hover-container"
+                   href="https://smartprogress.do/hybridauth/default/login/?provider=google"
+                   id="hybridauth-google">
+                        <i class="s s--social_google"></i>
+                        <i class="s s--social_google_hover s--hover"></i>
+                   </a>
+            </li><!--
+        --><!--
+        --><!--
+    --><!--
+        --><li class="social-menu__item">
+                <a class="social-btn social-btn_vkontakte s__hover-container"
+                   href="https://smartprogress.do/hybridauth/default/login/?provider=vkontakte"
+                   id="hybridauth-vkontakte">
+                        <i class="s s--social_vkontakte"></i>
+                        <i class="s s--social_vkontakte_hover s--hover"></i>
+                   </a>
+            </li><!--
+        --><!--
+        --></ul>
+        </div>
+
+    </form>
+</div>
+
+<div class="user-form user-form--login">
+
+    <form class="user-form__inner" id="login-form-modal" action="/user/login/" method="post">
+<input type="hidden" value="69589fb482351b234a78296a73c38ac0a3a8d97e" name="YII_CSRF_TOKEN" /><input type="hidden" value="/goal/307109/" name="returnUrl" id="returnUrl" />        <div class="user-form__title">Вход на сайт</div>
+        <i class="s s--logo_small"></i>
+        <h4 class="user-form__slogan">
+            Входите.<br /><span class="user-form__slogan-accent">Открыто.</span>        </h4>
+        <a href="#" class="link link--user-form user-form__cross-link" data-form="registration">Еще не зарегистрированы?</a>
+        <div class="user-form__input-wrapper">
+            <input placeholder="Email" tabindex="1" class="text_input" name="UserLoginForm[email]" id="UserLoginForm_email" type="text" />            <div class="help-block" id="UserLoginForm_email_em_" style="display:none"></div>        </div>
+        <div class="user-form__input-wrapper">
+            <input placeholder="Пароль" tabindex="2" class="text_input" name="UserLoginForm[password]" id="UserLoginForm_password" type="password" />            <div class="help-block" id="UserLoginForm_password_em_" style="display:none"></div>        </div>
+        <div class="user-form__input-wrapper" style="text-align: right">
+            <label for="UserLoginForm_rememberMe">Запомнить меня</label>&nbsp;
+            <label class="radio radio--on-dark radio--checkbox radio--stroke">
+                <input id="ytUserLoginForm_rememberMe" type="hidden" value="0" name="UserLoginForm[rememberMe]" /><input tabindex="3" class="radio__input" name="UserLoginForm[rememberMe]" id="UserLoginForm_rememberMe" value="1" checked="checked" type="checkbox" />                <i class="radio__icon"></i>
+            </label>
+        </div>
+        <div class="user-form__input-wrapper" style="text-align: right">
+            <div 
+                class="g-recaptcha" 
+                data-sitekey="6LdiIeUpAAAAAKVWK756aF9Xp-VBkCOyRB6swcJI" 
+                data-callback="onCheckCallback"
+                style="margin-left: -32px"
+            ></div>
+        </div>
+
+        <div class="user-form__submit-wrapper">
+            <button type="submit" class="user-form__submit btn btn_theme_blue" tabindex="4" name="yt3">Войти</button>            <button class="user-form__close btn btn_theme_gray" tabindex="5" name="yt4" type="button">Отмена</button>        </div>
+
+        <div class="user-form__socials">
+            Войти через соцсети            <ul class="social-menu">
+    <!--
+    --><!--
+        --><li class="social-menu__item">
+                <a class="social-btn social-btn_facebook s__hover-container"
+                   href="https://smartprogress.do/hybridauth/default/login/?provider=facebook"
+                   id="hybridauth-facebook">
+                        <i class="s s--social_facebook"></i>
+                        <i class="s s--social_facebook_hover s--hover"></i>
+                   </a>
+            </li><!--
+        --><!--
+        --><!--
+    --><!--
+        --><li class="social-menu__item">
+                <a class="social-btn social-btn_twitter s__hover-container"
+                   href="https://smartprogress.do/hybridauth/default/login/?provider=twitter"
+                   id="hybridauth-twitter">
+                        <i class="s s--social_twitter"></i>
+                        <i class="s s--social_twitter_hover s--hover"></i>
+                   </a>
+            </li><!--
+        --><!--
+        --><!--
+    --><!--
+        --><li class="social-menu__item">
+                <a class="social-btn social-btn_google s__hover-container"
+                   href="https://smartprogress.do/hybridauth/default/login/?provider=google"
+                   id="hybridauth-google">
+                        <i class="s s--social_google"></i>
+                        <i class="s s--social_google_hover s--hover"></i>
+                   </a>
+            </li><!--
+        --><!--
+        --><!--
+    --><!--
+        --><li class="social-menu__item">
+                <a class="social-btn social-btn_vkontakte s__hover-container"
+                   href="https://smartprogress.do/hybridauth/default/login/?provider=vkontakte"
+                   id="hybridauth-vkontakte">
+                        <i class="s s--social_vkontakte"></i>
+                        <i class="s s--social_vkontakte_hover s--hover"></i>
+                   </a>
+            </li><!--
+        --><!--
+        --></ul>
+        </div>
+
+    <a href="/user/recover/" class="user-form__password-restore">Забыли пароль?</a>
+
+    </form>
+</div>
+
+
+
+    
+        
+                    <script type="text/javascript" src="//vk.com/js/api/openapi.js?63" async></script>
+        
+        
+        <div class="overlay">
+	<div class="container">
+		<div class="overlay__popups popup__wrapper">
+            	<div class="widget popup popup--w580 popup--widget">
+		<div class="popup__header">
+		    <span class="popup__label">Настройки</span>
+		    <h2 class="popup__title">Виджет вашей цели</h2>
+		</div>
+
+		<div class="popup__body widget__columns clear">
+			<div class="widget__one-column" style="padding: 20px 40px 10px;width: auto;">
+				<h3>Большой <span>(450×150 px)</span></h3>
+				<iframe src="/goal/embed/307109/?user_id=" frameborder="0" width="450" height="150"></iframe>
+				<textarea rows="2" class="js-set-select-all form__inp form__inp--textarea"><iframe src="https://smartprogress.do/goal/embed/307109/?user_id=" frameborder="0" width="450" height="150"></iframe></textarea>
+
+				<h3>Маленький <span>(250×100 px)</span></h3>
+				<iframe src="/goal/embed/307109/?user_id=" frameborder="0" width="250" height="100"></iframe>
+				<textarea rows="2" class="js-set-select-all form__inp form__inp--textarea"><iframe src="https://smartprogress.do/goal/embed/307109/?user_id=" frameborder="0" width="250" height="100"></iframe></textarea>
+
+				<p>Чтобы вставить виджет на ваш сайт или блог, скопируйте код и внедрите его в&nbsp;исходный html-код вашего блога/сайта.</p>
+			</div>
+
+			<div class="edit-panel">
+	            <button type="button" class="btn btn_theme_gray popup__close">Закрыть</button>
+	        </div>
+		</div>
+	</div>
+<div class="popup widget widget--with-side popup--w680 js-buy-pro-popup buy-pro">
+    <h3 class="buy-pro__title">
+        Только для PRO    </h3>
+    <div class="buy-pro__body">
+        <div class="buy-pro__column">
+            <div class="formatted-content">
+                <p style="font-size: 16px; line-height: 24px;">
+                    Вы можете купить <a href="/user/pro/" target="_blank">PRO аккаунт</a>, либо получить его бесплатно, пригласив 3 друзей на SmartProgress                </p>
+            </div>
+            <div class="buy-pro__buttons">
+                <a href="/invite/" target="_blank" class="btn btn_theme_gray">
+                    Пригласить друзей                </a>
+                <button class="btn btn_theme_gray popup__close">
+                    Отмена                </button>
+            </div>
+        </div>
+        <div class="buy-pro__column buy-pro__column--side glass-bl">
+            <i class="s s--pro_small"></i>
+
+            <div class="hex-icon hex-icon--sm">
+                <div class="hex-icon__shape">
+                    <i class="s s--up-m-wave hex-icon__icon"></i>
+                </div>
+                <p class="hex-icon__lbl">
+                    Поднятие<br />целей наверх                </p>
+            </div>
+
+            <div class="buy-pro__buttons">
+                <a href="/user/pro/" target="_blank" class="btn btn_theme_blue">
+                    Купить                </a>
+            </div>
+        </div>
+    </div>
+</div>
+	<div class="popup popup--w580 widget contact">
+		<p>Email на все случаи и по любым вопросам</p>
+		<h3 class="contact__email">
+			<a href="/cdn-cgi/l/email-protection#8be3eee7e7e4cbf8e6eaf9fffbf9e4ecf9eef8f8a5efe4">
+				<span class="__cf_email__" data-cfemail="0b636e6767644b78666a797f7b79646c796e7878256f64">[email&#160;protected]</span>			</a>
+		</h3>
+
+		<ul class="contact__founders">
+			<li class="contact__founder">
+				<img src="/images/contact-max.jpg" width="157" height="157" alt="" class="contact__photo" />
+				<h4 class="contact__name">
+					Максим <strong>Маликов</strong>				</h4>
+				основатель			</li>
+			<li class="contact__founder">
+				<img src="/images/contact-fan.jpg" width="157" height="157" alt="" class="contact__photo" />
+				<h4 class="contact__name">
+					Сергей <strong>Захаров</strong>				</h4>
+				основатель			</li>
+		</ul>
+
+		<button class="btn btn_theme_gray popup__close">Закрыть</button>
+	</div>
+
+<div class="popup popup--w650 widget popup__wrapper js-popup js-popup--confirm"></div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/template" id="confirm_tpl">
+    <%
+        var def_label = 'Подтверждение';
+        var def_cancel = 'Отмена';
+    %>
+
+	<div class="popup__header popup__header--blue">
+		<span class="popup__label"><%= label || def_label %></span>
+		<h2 class="popup__title"><%= title %></h2>
+	</div>
+
+	<div class="popup__body clear">
+        <% if(message){ %>
+            <div class="popup__body--col">
+                <%= message %>
+            </div>
+        <% } %>
+		<div class="popup__body--col text-center">
+            <% if(show_confirm) { %>
+                <button class="btn btn_theme_blue btn-confirm"><%= confirm_label %></button>&nbsp;
+                <button class="btn btn_theme_gray btn-cancel"><%= cancel_label || def_cancel %></button>
+            <% } else { %>
+                <button class="btn btn_theme_blue btn-cancel"><%= cancel_label || def_cancel %></button>
+            <% } %>
+		</div>
+	</div>
+</script>
+		</div>
+	</div>
+</div>            <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        var yaParams = {
+            'Language': 'ru',
+                    };
+        
+        (function (d, w, c) { (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter16137913 = new Ya.Metrika({id:16137913, params: yaParams, enableAll: true, webvisor:true});
+                            } catch(e) {} }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f); } else { f(); } })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript><div><img src="//mc.yandex.ru/watch/16137913" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
+
+    <!-- Google Analitics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+        ga('create', 'UA-45640193-3', 'auto');
+        ga('send', 'pageview');
+      
+    </script>
+    <!-- /Google Analitics -->
+<script>
+    window.reachGoal = function(id) {
+        console.log('reachGoal', id);
+        if(window.yaCounter16137913 !== undefined) {
+            yaCounter16137913.reachGoal(id);
+        }
+    };
+</script>
+                    <script src="https://cdn.ravenjs.com/3.7.0/raven.min.js"></script>
+            <script>
+                Raven.config('https://63b4e10779a34eb5bdf63f03ee785901@sentry.io/102044').install();
+                            </script>
+                <script>
+            function calcAvgTimes(stat) {
+                var sum = stat.reduce(function(memo, item) {
+                    return {
+                        dom: memo.dom + item.dom,
+                        load: memo.load + item.load,
+                    };
+                }, {
+                    dom: 0,
+                    load: 0,
+                });
+                return {
+                    dom: sum.dom / stat.length,
+                    load: sum.load / stat.length,
+                };
+            }
+            function onLoad() {
+                // setTimeout(() => {
+                //     console.log('onLoad');
+                //     var statId = 'with_common_main';
+                //     var dom = (performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart) / 1000
+                //     var load = (performance.timing.loadEventEnd - performance.timing.navigationStart) / 1000;
+                //     var stat = JSON.parse(localStorage.getItem(statId) || '[]');
+                //     localStorage.setItem(statId, JSON.stringify(stat.concat([{ dom: dom, load: load }])));
+                // }, 300);
+            }
+        </script>
+        <div style="display: none">
+        <textarea id="somearea" name="somearea"></textarea>        </div>
+	<script type="text/javascript" src="/assets/c8b924ec/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/c8b924ec/jquery.yiiactiveform.js"></script>
+<script type="text/javascript" src="/assets/72e8cfaa/redactor.min.js"></script>
+<script type="text/javascript" src="/assets/72e8cfaa/lang/ru.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/polyfill/v2/polyfill.min.js"></script>
+<script type="text/javascript" src="/js/vendor-6109b95541b9bd5a1e74-built.js?v=9"></script>
+<script type="text/javascript" src="/js/ru.lib-d70307542f2bbb6cc1e7-built.js?v=9"></script>
+<script type="text/javascript" src="/js/ru.main-83f8c6ea94412d6a651e-built.js?v=9"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+
+    $(document).ready(function () {
+
+        var appeal_sending = false;
+        $("#appeal_send307109").on("click", function(e) {
+            e.preventDefault();
+            if(appeal_sending)
+                return false;
+            else
+                appeal_sending = true;
+
+            var request = $.ajax({
+                url: "/goal/AppealPoll/",
+                type: "post",
+                data: {
+                    'PromiseAppealForm[description]' : $("#appeal307109").find('textarea').val(),
+                    'PromiseAppealForm[goal_id]' : 307109,
+                    'YII_CSRF_TOKEN' : '69589fb482351b234a78296a73c38ac0a3a8d97e'
+                },
+                success: function(data) {
+                    $(this).ajaxResult(data, function() {
+                        $("#appeal-popup").closePopup();
+                        $(".open-appeal-popup-link").remove();
+                    });
+                }
+            });
+        });
+
+    });
+
+
+/*<![CDATA[*/
+$(document).ready(function () {
+    goalView({
+        csrfTokenName:'YII_CSRF_TOKEN',
+        csrfToken:'69589fb482351b234a78296a73c38ac0a3a8d97e',
+        redirectUrl: 'https://smartprogress.do/site/redirect/?url=',
+        sorting:'new_top',
+        urlGetPosts:'/blog/getPosts/',
+        objId: 307109,
+        obj_type: 0,
+        lock: true,
+        showBlog: 0,
+        post_id: 0,
+        urlChangeStepStatus:'/goal/changeStepStatus/',
+        confirm: {
+            del_goal: {
+                title: 'Вы действительно хотите удалить данную цель?',
+                confirm_label: 'Удалить'
+            },
+            del_post: {
+                title: 'Вы действительно хотите удалить данную запись?',
+                confirm_label: 'Удалить'
+            },
+            copy_goal: {
+                title: 'Вы действительно хотите скопировать данную цель в свой профиль?',
+                confirm_label: 'Скопировать цель'
+            }
+        }
+    });
+
+
+
+
+    
+    if ($('.goal__show-full--steps').length && $('.goal__show-full--steps').is(':hidden')) {
+        $('.goal__show-full--steps').click();
+    }
+});
+/*]]>*/
+
+
+    var reCaptchaCheck = false;
+    $(document).off('click', '.js-signup-toggle-password');
+    $(document).on('click', '.js-signup-toggle-password', function(){
+        var form = $(this).parents('form');
+        var input = form.find('.js-password-field');
+        console.log(form, input);
+        var clone = input.clone();
+
+        if(input.attr('type') == 'password'){
+            clone.attr('type','text');
+        }else{
+            clone.attr('type','password');
+        }
+        console.log(clone.attr('type'));
+        input.after(clone);
+        input.remove();
+    });
+
+    $(document).off('change', '.js-signup-rules-agreed');
+    $(document).on('change', '.js-signup-rules-agreed', function(e) {
+      $('.js-signup-submit').prop('disabled', !e.target.checked || !reCaptchaCheck);
+    });
+
+    $(document).on('submit', '#signup-form', function(e){
+      var $form = $(e.currentTarget);
+      if($form.find('.js-signup-rules-agreed').prop('checked')) {
+        $('#signup-form .user-form__submit').addClass('st-process').prop('disabled', true);
+      } else {
+        e.preventDefault();
+      }
+    });
+
+    var onCheckCallback = function() {
+      reCaptchaCheck = true;
+      console.log($('#signup-form').find('.js-signup-rules-agreed').prop('checked'));
+      $('.js-signup-submit').prop('disabled', !$('#signup-form').find('.js-signup-rules-agreed').prop('checked') || !reCaptchaCheck);
+    };
+
+
+    $(document).on('submit', '#login-form-modal', function(){
+        $('#login-form-modal .user-form__submit').addClass('st-process').prop('disabled', true);
+    });
+
+
+                mosaic();
+            
+jQuery(function($) {
+jQuery('body').on('click','#yt0',function(){jQuery.ajax({'type':'post','data':{'id':'302787','YII_CSRF_TOKEN':'69589fb482351b234a78296a73c38ac0a3a8d97e'},'beforeSend':function(){ $('.add-friend').ajaxSubmitSend(); },'complete':function(data){
+                                                                                        $('.add-friend').ajaxResult(data, function() {
+                                                                                            $('.add-friend').hide();
+                                                                                            $('.add-block').hide();
+                                                                                        });
+                                                                                    },'url':'/user/addFriend/','cache':false});return false;});
+jQuery('#signup-form').yiiactiveform({'beforeValidate':function(){$("#signup-form .user-form__submit").addClass("st-process").prop("disabled", true);return true;},'validateOnChange':false,'validateOnSubmit':true,'afterValidate':function(){$("#signup-form .user-form__submit").removeClass("st-process").prop("disabled", false); return true;},'attributes':[{'id':'User_username','inputID':'User_username','errorID':'User_username_em_','model':'User','name':'username','enableAjaxValidation':true,'clientValidation':function(value, messages, attribute) {
+
+if(jQuery.trim(value)=='') {
+	messages.push("\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0438\u043c\u044f");
+}
+
+
+if(jQuery.trim(value)!='') {
+	
+if(value.length<3) {
+	messages.push("\u041c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0434\u043b\u0438\u043d\u0430 \u0438\u043c\u0435\u043d\u0438 3 \u0441\u0438\u043c\u0432\u043e\u043b\u0430");
+}
+
+if(value.length>20) {
+	messages.push("\u041c\u0430\u043a\u0441\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0434\u043b\u0438\u043d\u0430 \u0438\u043c\u0435\u043d\u0438 20 \u0441\u0438\u043c\u0432\u043e\u043b\u043e\u0432");
+}
+
+}
+
+
+if(jQuery.trim(value)!='' && !value.match(/^[a-zA-Z0-9а-яА-ЯёЁ_ ]+$/)) {
+	messages.push("\u041d\u0435\u043f\u0440\u0430\u0432\u0438\u043b\u044c\u043d\u044b\u0435 \u0441\u0438\u043c\u0432\u043e\u043b\u044b");
+}
+
+}},{'id':'User_email','inputID':'User_email','errorID':'User_email_em_','model':'User','name':'email','enableAjaxValidation':true,'clientValidation':function(value, messages, attribute) {
+
+if(jQuery.trim(value)=='') {
+	messages.push("\u0412\u0432\u0435\u0434\u0438\u0442\u0435 email");
+}
+
+
+
+if(jQuery.trim(value)!='' && !value.match(/^[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/)) {
+	messages.push("Email \u0430\u0434\u0440\u0435\u0441 \u0443\u043a\u0430\u0437\u0430\u043d \u043d\u0435\u0432\u0435\u0440\u043d\u043e");
+}
+
+}},{'id':'User_password','inputID':'User_password','errorID':'User_password_em_','model':'User','name':'password','enableAjaxValidation':true,'clientValidation':function(value, messages, attribute) {
+
+if(jQuery.trim(value)=='') {
+	messages.push("\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043f\u0430\u0440\u043e\u043b\u044c");
+}
+
+
+if(jQuery.trim(value)!='') {
+	
+if(value.length<4) {
+	messages.push("\u041c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0434\u043b\u0438\u043d\u0430 \u043f\u0430\u0440\u043e\u043b\u044f 4 \u0441\u0438\u043c\u0432\u043e\u043b\u0430");
+}
+
+if(value.length>128) {
+	messages.push("\u041c\u0430\u043a\u0441\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0434\u043b\u0438\u043d\u0430 \u043f\u0430\u0440\u043e\u043b\u044f 128 \u0441\u0438\u043c\u0432\u043e\u043b\u043e\u0432");
+}
+
+}
+
+}}],'errorCss':'error'});
+jQuery('#login-form-modal').yiiactiveform({'beforeValidate':function(){$("#login-form-modal .user-form__submit").addClass("st-process").prop("disabled", true);return true;},'validateOnChange':false,'validateOnSubmit':true,'afterValidate':function(){$("#login-form-modal .user-form__submit").removeClass("st-process").prop("disabled", false); return true;},'attributes':[{'id':'UserLoginForm_email','inputID':'UserLoginForm_email','errorID':'UserLoginForm_email_em_','model':'UserLoginForm','name':'email','enableAjaxValidation':true,'clientValidation':function(value, messages, attribute) {
+
+if(jQuery.trim(value)=='') {
+	messages.push("\u0412\u0432\u0435\u0434\u0438\u0442\u0435 email");
+}
+
+
+
+if(jQuery.trim(value)!='' && !value.match(/^[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/)) {
+	messages.push("Email \u0430\u0434\u0440\u0435\u0441 \u0443\u043a\u0430\u0437\u0430\u043d \u043d\u0435\u0432\u0435\u0440\u043d\u043e");
+}
+
+}},{'id':'UserLoginForm_password','inputID':'UserLoginForm_password','errorID':'UserLoginForm_password_em_','model':'UserLoginForm','name':'password','enableAjaxValidation':true,'clientValidation':function(value, messages, attribute) {
+
+if(jQuery.trim(value)=='') {
+	messages.push("\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043f\u0430\u0440\u043e\u043b\u044c");
+}
+
+}}],'errorCss':'error'});
+});
+/*]]>*/
+</script>
+</body>
+
+</html>
