@@ -90,7 +90,6 @@ table.split  tr{
             height: 50px; /* Высота прямоугольника */
             background-color:#c1c9e0; /* Цвет фона */
             border-radius: 15px; /* Скругление углов */
-            display: flex; /* Для центрирования текста */
             align-items: center; /* Вертикальное центрирование */
             justify-content: center; /* Горизонтальное центрирование */
             color: white; /* Цвет текста */
@@ -101,3 +100,4 @@ table.split{
     font-family:franklin gothic medium;
     font-size: 20px;
 }
+ 
