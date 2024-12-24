@@ -91,6 +91,7 @@ table.split  tr{
             background-color:#c1c9e0; /* Цвет фона */
             border-radius: 15px; /* Скругление углов */
             align-items: center; /* Вертикальное центрирование */
+            display: flex; /* Для центрирования текста */
             justify-content: center; /* Горизонтальное центрирование */
             color: white; /* Цвет текста */
             font-size: 30px; /* Размер текста */
