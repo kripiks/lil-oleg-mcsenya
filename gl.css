@@ -89,7 +89,7 @@ table.split  tr{
             width: 550px; /* Ширина прямоугольника */
             height: 50px; /* Высота прямоугольника */
             background-color:#c1c9e0; /* Цвет фона */
-            border-radius: 15px; /* Скругление углов */
+            border-radius: 100px; /* Скругление углов */
             align-items: center; /* Вертикальное центрирование */
             justify-content: center; /* Горизонтальное центрирование */
             color: white; /* Цвет текста */
