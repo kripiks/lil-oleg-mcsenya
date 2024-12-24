@@ -86,7 +86,7 @@ table.split  tr{
     height:50px;
 }
 .prgl {
-            width: 300px; /* Ширина прямоугольника */
+            width: 550px; /* Ширина прямоугольника */
             height: 50px; /* Высота прямоугольника */
             background-color:#c1c9e0; /* Цвет фона */
             border-radius: 15px; /* Скругление углов */
